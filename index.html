@@ -137,6 +137,21 @@
             font-size: 1.05rem;
         }
 
+        .student-identity {
+            margin-top: 18px;
+            padding: 16px;
+            border: 1px solid var(--outline);
+            border-radius: 10px;
+            background: #fffdf8;
+        }
+
+        .student-identity strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 6px;
+            font-size: 0.98rem;
+        }
+
         .toggle-panel {
             margin-top: 20px;
             display: none;
@@ -183,10 +198,15 @@
                 Artificial Intelligence, Machine Learning, Data Science, Cyber Security,
                 Software Engineering, and Cloud Computing.
             </p>
+            <div class="student-identity">
+                <strong>Student Details</strong>
+                <div>ATHARV LULEKAR</div>
+                <div>PRN : 24070521036</div>
+            </div>
             <p id="today" style="font-weight:600; color:var(--primary);"></p>
             <div class="actions">
                 <a class="btn btn-primary" href="student.html">Student Information Portal</a>
-                <a class="btn btn-secondary" href="https://www.sitnagpur.siu.edu.in/" target="_blank" rel="noopener noreferrer">Visit SIT Nagpur</a>
+                <a class="btn btn-secondary" href="https://sitnagpur.edu.in/#" target="_blank" rel="noopener noreferrer">Visit SIT Nagpur</a>
                 <button class="btn btn-secondary" id="toggleBtn" onclick="toggleHighlights()">View Highlights</button>
             </div>
 

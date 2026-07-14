@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Pair of socks">
+  <rect width="120" height="120" rx="24" fill="#f5efe6"/>
+  <path d="M42 26h18v34c0 6 2 11 6 15l10 10c5 5 5 13 0 18l-14 14H44l-8-8 12-16c-3-4-6-9-6-15V26z" fill="#b5c7d3"/>
+  <path d="M70 32h18v34c0 6 2 11 6 15l4 4c5 5 5 13 0 18l-12 12H76l-6-6 8-10c3-4 3-10 0-14l-8-9c-6-7-10-15-10-24V32z" fill="#6b7a8f" opacity="0.9"/>
+</svg>

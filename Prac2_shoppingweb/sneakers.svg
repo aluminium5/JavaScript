@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Casual sneakers">
+  <rect width="120" height="120" rx="24" fill="#f5efe6"/>
+  <path d="M26 70c10-2 18-10 24-22l10 6 11 18h15c10 0 14 4 14 12H24c0-7 1-12 2-14z" fill="#6b7a8f"/>
+  <path d="M26 70h68" stroke="#175545" stroke-width="5" stroke-linecap="round"/>
+  <path d="M50 54l8 6M58 49l8 6" stroke="#f5efe6" stroke-width="3" stroke-linecap="round"/>
+</svg>

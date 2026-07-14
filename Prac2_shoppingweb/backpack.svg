@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Canvas backpack">
+  <rect width="120" height="120" rx="24" fill="#f5efe6"/>
+  <path d="M42 44c0-10 8-18 18-18s18 8 18 18v6H42v-6z" fill="#175545"/>
+  <rect x="32" y="48" width="56" height="46" rx="14" fill="#1f6f5b"/>
+  <rect x="48" y="58" width="24" height="20" rx="8" fill="#f5efe6" opacity="0.9"/>
+  <path d="M42 48v-6c0-10 8-18 18-18s18 8 18 18v6" fill="none" stroke="#175545" stroke-width="5" stroke-linecap="round"/>
+</svg>

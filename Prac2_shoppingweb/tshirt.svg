@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Cotton t-shirt">
+  <rect width="120" height="120" rx="24" fill="#f5efe6"/>
+  <path d="M37 30h46l12 12-12 14v28H33V56L21 42l12-12z" fill="#1f6f5b"/>
+  <path d="M43 30c2 8 9 14 17 14s15-6 17-14" fill="none" stroke="#175545" stroke-width="5" stroke-linecap="round"/>
+</svg>

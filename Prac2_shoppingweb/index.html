@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shoppers avenue</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="topbar">
+		<h1>Shoppers avenue</h1>
+		<p>Simple essentials. Clear prices. Quick bill total.</p>
+		<p class="meta">ATHARV LULEKAR | PRN: 24070521036</p>
+	</header>
+
+	<main class="page">
+		<section class="catalog" aria-labelledby="catalog-title">
+			<h2 id="catalog-title">Products</h2>
+
+			<article class="item">
+				<img src="tshirt.svg" alt="Cotton T-shirt" class="product-image">
+				<div>
+					<h3>Cotton T-Shirt</h3>
+					<p>Soft everyday wear</p>
+				</div>
+				<div class="item-actions">
+					<span>₹499</span>
+					<label>
+						Qty
+						<input type="number" min="0" value="0" data-price="499" class="qty-input">
+					</label>
+				</div>
+			</article>
+
+			<article class="item">
+				<img src="sneakers.svg" alt="Casual sneakers" class="product-image">
+				<div>
+					<h3>Casual Sneakers</h3>
+					<p>Lightweight and clean</p>
+				</div>
+				<div class="item-actions">
+					<span>₹1299</span>
+					<label>
+						Qty
+						<input type="number" min="0" value="0" data-price="1299" class="qty-input">
+					</label>
+				</div>
+			</article>
+
+			<article class="item">
+				<img src="backpack.svg" alt="Canvas backpack" class="product-image">
+				<div>
+					<h3>Canvas Backpack</h3>
+					<p>Useful for daily carry</p>
+				</div>
+				<div class="item-actions">
+					<span>₹899</span>
+					<label>
+						Qty
+						<input type="number" min="0" value="0" data-price="899" class="qty-input">
+					</label>
+				</div>
+			</article>
+
+			<article class="item">
+				<img src="socks.svg" alt="Pair of socks" class="product-image">
+				<div>
+					<h3>Comfort Socks</h3>
+					<p>Soft pair for daily use</p>
+				</div>
+				<div class="item-actions">
+					<span>₹199</span>
+					<label>
+						Qty
+						<input type="number" min="0" value="0" data-price="199" class="qty-input">
+					</label>
+				</div>
+			</article>
+
+			<article class="item">
+				<img src="underwear.svg" alt="Underwear" class="product-image">
+				<div>
+					<h3>Inner Wear</h3>
+					<p>Breathable everyday comfort</p>
+				</div>
+				<div class="item-actions">
+					<span>₹349</span>
+					<label>
+						Qty
+						<input type="number" min="0" value="0" data-price="349" class="qty-input">
+					</label>
+				</div>
+			</article>
+
+			<article class="item">
+				<img src="cap.svg" alt="Cap" class="product-image">
+				<div>
+					<h3>Classic Cap</h3>
+					<p>Simple street style</p>
+				</div>
+				<div class="item-actions">
+					<span>₹299</span>
+					<label>
+						Qty
+						<input type="number" min="0" value="0" data-price="299" class="qty-input">
+					</label>
+				</div>
+			</article>
+		</section>
+
+		<aside class="bill" aria-labelledby="bill-title">
+			<h2 id="bill-title">Bill Summary</h2>
+			<div class="bill-row"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+			<div class="bill-row"><span>GST (18%)</span><strong id="tax">₹0</strong></div>
+			<div class="bill-row total"><span>Total</span><strong id="total">₹0</strong></div>
+			<button type="button" id="calculateBtn">Calculate Bill</button>
+			<p class="hint">Enter quantities for any products, then calculate your bill.</p>
+		</aside>
+	</main>
+
+	<footer class="footer">
+		<p class="meta">ATHARV LULEKAR | PRN: 24070521036</p>
+		<p>Simple shopping page built with HTML5, CSS, and JavaScript.</p>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simple Password Checker</title>
+	<style>
+		:root {
+			color-scheme: dark;
+			--bg1: #050505;
+			--bg2: #111111;
+			--card: rgba(14, 14, 14, 0.96);
+			--text: #f8f1d4;
+			--muted: #b8ab7d;
+			--accent: #d4af37;
+			--accent-dark: #b88f1f;
+			--danger: #ff6b6b;
+			--success: #6fdc9a;
+			--border: #3a3320;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			font-family: Arial, Helvetica, sans-serif;
+			color: var(--text);
+			background:
+				radial-gradient(circle at top left, rgba(212, 175, 55, 0.18), transparent 30%),
+				radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.1), transparent 26%),
+				linear-gradient(135deg, var(--bg1), var(--bg2));
+			display: grid;
+			place-items: center;
+			padding: 24px;
+		}
+
+		.card {
+			width: min(100%, 460px);
+			background: var(--card);
+			border: 1px solid rgba(212, 175, 55, 0.22);
+			border-radius: 20px;
+			box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+			overflow: hidden;
+		}
+
+		.header {
+			padding: 24px 24px 12px;
+			text-align: center;
+		}
+
+		.header h1 {
+			margin: 0 0 8px;
+			font-size: 1.55rem;
+		}
+
+		.header p {
+			margin: 0;
+			color: var(--muted);
+			font-size: 0.95rem;
+			line-height: 1.4;
+		}
+
+		.content {
+			padding: 12px 24px 24px;
+		}
+
+		label {
+			display: block;
+			margin: 18px 0 6px;
+			font-weight: 700;
+			font-size: 0.95rem;
+		}
+
+		input {
+			width: 100%;
+			padding: 12px 14px;
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			font-size: 1rem;
+			outline: none;
+			transition: border-color 0.2s ease, box-shadow 0.2s ease;
+		}
+
+		input:focus {
+			border-color: var(--accent);
+			box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+		}
+
+		button {
+			border: 0;
+			border-radius: 10px;
+			padding: 12px 14px;
+			font-size: 1rem;
+			font-weight: 700;
+			cursor: pointer;
+		}
+
+		.primary {
+			background: var(--accent);
+			color: #15120a;
+			width: 100%;
+			margin-top: 16px;
+		}
+
+		.primary:hover {
+			background: var(--accent-dark);
+		}
+
+		.message {
+			min-height: 22px;
+			margin-top: 18px;
+			font-size: 0.95rem;
+			font-weight: 700;
+			text-align: center;
+		}
+
+		.message.success {
+			color: var(--success);
+		}
+
+		.message.error {
+			color: var(--danger);
+		}
+
+		.footer {
+			padding: 0 24px 22px;
+			text-align: center;
+			color: var(--muted);
+			font-size: 0.88rem;
+		}
+
+		.helper {
+			margin-top: 10px;
+			color: var(--muted);
+			font-size: 0.9rem;
+			line-height: 1.5;
+		}
+	</style>
+</head>
+<body>
+	<main class="card">
+		<div class="header">
+			<h1>Password Checker</h1>
+			<p>Enter the password and click the button to check it.</p>
+		</div>
+		<div class="content">
+			<label for="password">Password</label>
+			<input id="password" type="password" placeholder="Enter password">
+			<div class="helper">Use the button below to validate the password against the fixed value.</div>
+			<button class="primary" type="button" onclick="checkPassword()">Check Password</button>
+			<div id="result" class="message" aria-live="polite"></div>
+		</div>
+
+		<div class="footer">
+			Simple client-side password demo.
+		</div>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practical 5.2 - Student Marks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Student Marks Analyzer</h1>
+    <p class="subtitle">Find the highest and lowest scorer from an array of student objects.</p>
+
+    <div class="input-row">
+      <input type="text" id="studentName" placeholder="Student Name" />
+      <input type="number" id="studentMarks" placeholder="Marks (0-100)" min="0" max="100" />
+      <button onclick="addStudent()">Add</button>
+    </div>
+
+    <p id="errorMsg" class="error"></p>
+
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Marks</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <button id="findBtn" class="find-btn" onclick="findMaxMin()">Find Highest and Lowest</button>
+
+    <div id="resultCards" class="result-cards">
+      <div class="card max-card">
+        <p class="label">Highest Scorer</p>
+        <p id="maxName" class="student-name">-</p>
+        <p id="maxMarks" class="student-marks">-</p>
+      </div>
+      <div class="card min-card">
+        <p class="label">Lowest Scorer</p>
+        <p id="minName" class="student-name">-</p>
+        <p id="minMarks" class="student-marks">-</p>
+      </div>
+    </div>
+
+    <button class="reset-btn" onclick="resetAll()">Reset</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

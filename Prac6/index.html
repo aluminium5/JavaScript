@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String Methods and Regular Expressions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <p class="eyebrow">Prac 6</p>
+      <h1>String Methods and Regular Expressions</h1>
+      <p class="lead">
+        Enter a paragraph and an email address to see how string methods and regex work together.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="field-group">
+        <label for="paragraph">Enter a paragraph</label>
+        <textarea id="paragraph" rows="6">JavaScript is a powerful programming language. It is widely used for web development.</textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="email">Enter email</label>
+        <input type="text" id="email" placeholder="Enter your email">
+      </div>
+
+      <button type="button" onclick="processString()">Process</button>
+
+      <section id="output" class="output" aria-live="polite"></section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

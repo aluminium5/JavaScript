@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #fafafa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .required-note {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .required-note span {
+            color: #d32f2f;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        .required::after {
+            content: '*';
+            color: #d32f2f;
+            margin-left: 4px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .birthday-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .birthday-group .form-group {
+            flex: 1;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: #1976d2;
+        }
+
+        .checkbox-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #1565c0;
+        }
+
+        button:active {
+            background: #0d47a1;
+        }
+
+        .error {
+            color: #d32f2f;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-group.invalid .error {
+            display: block;
+        }
+
+        .form-group.invalid input,
+        .form-group.invalid select {
+            border-color: #d32f2f;
+            background-color: #ffebee;
+        }
+
+        .success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <p class="required-note"><span>*</span>Mandatory to fill</p>
+
+        <div class="success" id="successMsg">Form submitted successfully!</div>
+
+        <form id="registrationForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="required">Firstname</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="">
+                    <div class="error">Firstname is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Lastname</label>
+                <input type="text" id="lastname" name="lastname" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label>Birthday</label>
+                <div class="birthday-group">
+                    <div class="form-group">
+                        <select id="day" name="day">
+                            <option value="">Day</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select id="month" name="month">
+                            <option value="">Month</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select id="year" name="year">
+                            <option value="">Year</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2010">2010</option>
+                            <option value="2005">2005</option>
+                            <option value="2000">2000</option>
+                            <option value="1995">1995</option>
+                            <option value="1990">1990</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Username</label>
+                <input type="text" id="username" name="username" placeholder="">
+                <div class="error">Username is required</div>
+            </div>
+
+            <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" id="email" name="email" placeholder="">
+                <div class="error">Please enter a valid email</div>
+            </div>
+
+            <div class="form-group">
+                <label>Website</label>
+                <input type="text" id="website" name="website" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label class="required">Password</label>
+                <input type="password" id="password" name="password" placeholder="">
+                <div class="error">Password is required (minimum 6 characters)</div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Re-password</label>
+                <input type="password" id="repassword" name="repassword" placeholder="">
+                <div class="error">Passwords do not match</div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" name="terms">
+                <label for="terms" class="checkbox-text">I agree to the terms & conditions</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous error states
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('invalid');
+            });
+            successMsg.classList.remove('show');
+
+            // Get form values
+            const firstname = document.getElementById('firstname').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const repassword = document.getElementById('repassword').value;
+            const terms = document.getElementById('terms').checked;
+
+            let isValid = true;
+
+            // Validate firstname
+            if (!firstname) {
+                document.getElementById('firstname').closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+
+            // Validate username
+            if (!username) {
+                document.getElementById('username').closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+
+            // Validate email
+            if (email && !isValidEmail(email)) {
+                document.getElementById('email').closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+
+            // Validate password
+            if (!password || password.length < 6) {
+                document.getElementById('password').closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+
+            // Validate re-password
+            if (password !== repassword) {
+                document.getElementById('repassword').closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+
+            // Validate terms
+            if (!terms) {
+                alert('Please agree to the terms & conditions');
+                isValid = false;
+            }
+
+            if (isValid) {
+                successMsg.classList.add('show');
+                console.log('Form submitted successfully!');
+                console.log({
+                    firstname,
+                    username,
+                    email,
+                    password
+                });
+                form.reset();
+                setTimeout(() => {
+                    successMsg.classList.remove('show');
+                }, 3000);
+            }
+        });
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Clear error on input
+        ['firstname', 'username', 'email', 'password', 'repassword'].forEach(id => {
+            document.getElementById(id).addEventListener('input', function() {
+                this.closest('.form-group').classList.remove('invalid');
+            });
+        });
+    </script>
+</body>
+</html>

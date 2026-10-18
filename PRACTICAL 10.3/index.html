@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Details - Runtime Input | Atharv Lulekar (24070521036)</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            margin: 0;
+            padding: 32px 16px;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+        }
+
+        .student-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            background-color: #e0e7ff;
+            color: #3730a3;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0 0 6px;
+            font-size: 22px;
+        }
+
+        .subtitle {
+            margin: 0 0 22px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 9px 11px;
+            font-family: inherit;
+            font-size: 14px;
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 9px 18px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: #4f46e5;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #4338ca;
+            transform: translateY(-1px);
+        }
+
+        button#clearBtn {
+            background-color: #ef4444;
+        }
+
+        button#clearBtn:hover {
+            background-color: #dc2626;
+        }
+
+        #message {
+            font-size: 13px;
+            font-weight: 500;
+            color: #64748b;
+        }
+
+        #message.error {
+            color: #dc2626;
+        }
+
+        #message.success {
+            color: #059669;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 24px;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #eef2ff;
+            color: #312e81;
+            font-weight: 600;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        tbody tr:hover {
+            background-color: #eff6ff;
+        }
+
+        td.empty-row {
+            text-align: center;
+            color: #94a3b8;
+            font-style: italic;
+            padding: 22px;
+        }
+
+        footer {
+            margin-top: 22px;
+            padding-top: 14px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        @media (max-width: 560px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <span class="student-badge">Atharv Lulekar &bull; PRN: 24070521036</span>
+
+        <h2>Student Details - Runtime Input</h2>
+        <p class="subtitle">Enter the details below and they are added to the table at runtime using DOM methods.</p>
+
+        <!-- Input Form -->
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="studentId">ID</label>
+                <input type="number" id="studentId" placeholder="e.g., 1" />
+            </div>
+            <div class="form-group">
+                <label for="studentName">Name</label>
+                <input type="text" id="studentName" placeholder="e.g., Atharv Lulekar" />
+            </div>
+            <div class="form-group">
+                <label for="studentDept">Department</label>
+                <input type="text" id="studentDept" placeholder="e.g., CSE" />
+            </div>
+            <div class="form-group">
+                <label for="studentMarks">Marks (0 - 100)</label>
+                <input type="number" id="studentMarks" placeholder="e.g., 91" min="0" max="100" />
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button onclick="addStudent()">Add Student</button>
+            <button id="clearBtn" onclick="clearTable()">Clear Table</button>
+            <span id="message">No records added yet.</span>
+        </div>
+
+        <!-- Output Table -->
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="empty-row" colspan="4">No student records added yet.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer>Practical 10.3 &bull; Submitted by Atharv Lulekar (PRN: 24070521036)</footer>
+    </div>
+
+    <script>
+        function showMessage(text, type) {
+            const message = document.getElementById("message");
+            message.className = type || "";
+            message.textContent = text;
+        }
+
+        function addStudent() {
+            const id    = document.getElementById("studentId").value.trim();
+            const name  = document.getElementById("studentName").value.trim();
+            const dept  = document.getElementById("studentDept").value.trim();
+            const marks = document.getElementById("studentMarks").value.trim();
+
+            // Validate inputs
+            if (!id || !name || !dept || !marks) {
+                showMessage("Please fill in all fields before adding a student.", "error");
+                return;
+            }
+
+            if (Number(marks) < 0 || Number(marks) > 100) {
+                showMessage("Marks must be between 0 and 100.", "error");
+                return;
+            }
+
+            const tableBody = document.querySelector("#studentTable tbody");
+
+            // Remove the placeholder row on the first insert
+            const placeholder = tableBody.querySelector(".empty-row");
+            if (placeholder) {
+                tableBody.replaceChildren();
+            }
+
+            const row = document.createElement("tr");
+
+            [id, name, dept, marks].forEach(value => {
+                const cell = document.createElement("td");
+                cell.textContent = value;
+                row.appendChild(cell);
+            });
+
+            tableBody.appendChild(row);
+
+            showMessage(tableBody.rows.length + " student record(s) in the table.", "success");
+
+            // Clear input fields after adding
+            document.getElementById("studentId").value = "";
+            document.getElementById("studentName").value = "";
+            document.getElementById("studentDept").value = "";
+            document.getElementById("studentMarks").value = "";
+
+            document.getElementById("studentId").focus();
+        }
+
+        function clearTable() {
+            const tableBody = document.querySelector("#studentTable tbody");
+            tableBody.replaceChildren();
+
+            const row = document.createElement("tr");
+            const cell = document.createElement("td");
+            cell.className = "empty-row";
+            cell.colSpan = 4;
+            cell.textContent = "No student records added yet.";
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+
+            showMessage("Table cleared.", "");
+        }
+
+        // Pressing Enter in any input adds the record
+        document.querySelectorAll("input").forEach(input => {
+            input.addEventListener("keydown", event => {
+                if (event.key === "Enter") {
+                    addStudent();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

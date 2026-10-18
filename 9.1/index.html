@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Preferences | Atharv Lulekar (24070521036)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 16px;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark {
+            background-color: #15181c;
+            color: #f1f5f9;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 480px;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body.dark .card {
+            background-color: #24282c;
+            border-color: #3a4048;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        .student-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            background-color: #e0e7ff;
+            color: #3730a3;
+            margin-bottom: 16px;
+        }
+
+        body.dark .student-badge {
+            background-color: #312e81;
+            color: #dbe4ff;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+
+        body.dark .subtitle {
+            color: #94a3b8;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            border-color: #6366f1;
+            color: #4338ca;
+            transform: translateY(-1px);
+        }
+
+        button.active {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+            color: #ffffff;
+        }
+
+        button.clear-btn:hover {
+            border-color: #ef4444;
+            color: #dc2626;
+        }
+
+        body.dark button {
+            background-color: #2b3035;
+            border-color: #4b5563;
+            color: #e2e8f0;
+        }
+
+        body.dark button.active {
+            background-color: #6366f1;
+            border-color: #6366f1;
+            color: #ffffff;
+        }
+
+        .storage-panel {
+            text-align: left;
+            font-size: 13px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 18px;
+        }
+
+        body.dark .storage-panel {
+            border-top-color: #3a4048;
+        }
+
+        .storage-panel h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .storage-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            background-color: #f8fafc;
+            margin-bottom: 8px;
+        }
+
+        body.dark .storage-row {
+            background-color: #1e2227;
+        }
+
+        .storage-row .key {
+            font-weight: 600;
+        }
+
+        .storage-row .value {
+            font-family: Consolas, monospace;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            color: #334155;
+        }
+
+        body.dark .storage-row .value {
+            background-color: #374151;
+            color: #e2e8f0;
+        }
+
+        .hint {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <span class="student-badge">Atharv Lulekar &bull; PRN: 24070521036</span>
+
+        <h1>Theme Preferences</h1>
+        <p class="subtitle">Using localStorage and sessionStorage to save user preferences.</p>
+
+        <div class="button-row">
+            <button id="lightBtn" onclick="setTheme('light')">Light Theme</button>
+            <button id="darkBtn" onclick="setTheme('dark')">Dark Theme</button>
+            <button class="clear-btn" onclick="clearPreference()">Clear Preference</button>
+        </div>
+
+        <div class="storage-panel">
+            <h2>Current Stored Values</h2>
+
+            <div class="storage-row">
+                <span class="key">localStorage &rarr; theme</span>
+                <span class="value" id="localValue">not set</span>
+            </div>
+
+            <div class="storage-row">
+                <span class="key">sessionStorage &rarr; sessionTheme</span>
+                <span class="value" id="sessionValue">not set</span>
+            </div>
+
+            <p class="hint">
+                Reload the page &mdash; the theme returns from <strong>localStorage</strong>.
+                Open this page in a new tab &mdash; <strong>sessionStorage</strong> starts empty again.
+            </p>
+        </div>
+
+        <footer>Experiment 9.1 &bull; Atharv Lulekar (24070521036)</footer>
+    </div>
+
+    <script>
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                document.body.classList.add('dark');
+            } else {
+                document.body.classList.remove('dark');
+            }
+
+            localStorage.setItem('theme', theme);
+
+            sessionStorage.setItem('sessionTheme', theme);
+
+            showStoredValues();
+        }
+
+        function clearPreference() {
+            localStorage.removeItem('theme');
+            sessionStorage.removeItem('sessionTheme');
+            document.body.classList.remove('dark');
+
+            showStoredValues();
+        }
+
+        function showStoredValues() {
+            var saved = localStorage.getItem('theme');
+            var sessionSaved = sessionStorage.getItem('sessionTheme');
+
+            document.getElementById('localValue').textContent = saved || 'not set';
+            document.getElementById('sessionValue').textContent = sessionSaved || 'not set';
+
+            document.getElementById('lightBtn').classList.toggle('active', saved === 'light');
+            document.getElementById('darkBtn').classList.toggle('active', saved === 'dark');
+        }
+
+        window.onload = function () {
+            var saved = localStorage.getItem('theme');
+            if (saved === 'dark') {
+                document.body.classList.add('dark');
+            }
+
+            showStoredValues();
+        };
+    </script>
+
+</body>
+
+</html>

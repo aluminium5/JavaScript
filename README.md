@@ -32,6 +32,10 @@ This repository contains practical implementations ranging from core JavaScript 
 | **Prac 5** | Objects, Arrays, `map()`, `filter()`, `reduce()`, AtharvCart & Marks Analyzer | [`Prac5/`](./Prac5/) |
 | **Prac 6** | String Methods, Regular Expressions (Regex), Email Validator & Vowel Counter | [`Prac6/`](./Prac6/) |
 | **Prac 7** | DOM Manipulation, Dynamic Task Manager (To-Do List) & Form Validation | [`Prac7/`](./Prac7/) |
+| **Prac 8** | Event-Driven Form Validation (`input`, `blur`, `change`, `submit`) | [`Prac8/`](./Prac8/) |
+| **Prac 9** | Browser Object Model & Storage APIs, Seminar Schedule Planner | [`9.1/`](./9.1/) |
+| **Prac 10** | HTML5 Form Controls, Fetch API & Runtime Data Rendering | [`PRACTICAL 10.1/`](./PRACTICAL%2010.1/), [`10.2/`](./PRACTICAL%2010.2/), [`10.3/`](./PRACTICAL%2010.3/) |
+| **CA3** | **Self Portfolio Website (Mini Project)** | [`portfolio/`](./portfolio/) |
 
 ---
 
@@ -79,6 +83,28 @@ This repository contains practical implementations ranging from core JavaScript 
   - `Prac7.1/`: Interactive Task Manager (To-Do List) with inline edit and deletion.
   - `Prac7.2/`: Comprehensive user registration form with real-time field error highlighting and validation.
 
+### 🔹 [Practical 8: Event-Driven Form Validation](./Prac8/)
+- **Concepts Covered:** Distinct DOM event types on a single form — `input`, `blur`, `change` and `submit` — combined with regular-expression field rules.
+- **Applications:**
+  - `index.html`: Gym Admission Form validating name, age, email, mobile and membership plan in real time.
+
+### 🔹 [Practical 9: Browser Object Model & Storage APIs](./9.1/)
+- **Concepts Covered:** `localStorage` versus `sessionStorage`, serialising objects with `JSON.stringify()` / `JSON.parse()`, persisting user interface state across reloads.
+- **Applications:**
+  - `9.1/`: Theme Preferences switcher with a live readout of both storage areas.
+  - `9.1/9.2/`: Seminar Schedule Planner that saves the selected slot and tracks every topic viewed in the session.
+
+### 🔹 [Practical 10: HTML5 Forms, Fetch API & Runtime Data](./PRACTICAL%2010.1/)
+- **Concepts Covered:** The full range of HTML5 input types and pattern validation, the Fetch API, promises, and rendering JSON into the DOM at runtime.
+- **Applications:**
+  - `PRACTICAL 10.1/`: Technical Workshop Ticket Booking Form with live price calculation, promo codes and a generated ticket.
+  - `PRACTICAL 10.2/`: Student records loaded from `student.json` using `fetch()`, with loading and error states.
+  - `PRACTICAL 10.3/`: Student details table built row by row from runtime user input.
+
+### 🔹 [CA3 Mini Project: Self Portfolio Website](./portfolio/)
+- **Concepts Covered:** Everything above, re-applied in one deliverable — data-driven rendering with `map()` and `filter()`, event delegation, `localStorage` theme persistence, `IntersectionObserver` scroll effects, responsive and accessible layout.
+- **Application:** A single-page portfolio covering profile, education, skills, projects, achievements and contact details, linking directly to every lab application in this repository.
+
 ---
 
 ## 🛠️ Software & Tools Required
@@ -94,14 +120,15 @@ This repository contains practical implementations ranging from core JavaScript 
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/AtharvLulekar/JavaScript.git
+   git clone https://github.com/aluminium5/JavaScript.git
    ```
 2. **Navigate to the Project Folder:**
    ```bash
    cd JavaScript
    ```
 3. **Open & View:**
-   - Double-click any `index.html` file inside `Prac1/` through `Prac7/` to open it in your default web browser.
+   - Start with [`portfolio/index.html`](./portfolio/) — it indexes and links to every practical.
+   - Or double-click any `index.html` file inside `Prac1/` through `PRACTICAL 10.3/` to open it directly.
    - Alternatively, use the **Live Server** extension in VS Code for live updates.
 
 ---

@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Workshop Ticket Booking Form | Atharv Lulekar (24070521036)</title>
+
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --gray-light: #f8fafc;
+            --gray-border: #cbd5e1;
+            --gray-text: #64748b;
+            --text-main: #1e293b;
+            --danger: #ef4444;
+            --success: #10b981;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 50%, #f5f3ff 100%);
+            color: var(--text-main);
+            padding: 30px 15px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        /* Header Banner */
+        .form-header {
+            background: linear-gradient(135deg, #312e81 0%, #4338ca 60%, #4f46e5 100%);
+            color: #ffffff;
+            padding: 35px 30px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .student-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .form-header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .form-header p {
+            font-size: 15px;
+            color: #e0e7ff;
+            max-width: 650px;
+            margin: 0 auto 15px;
+            line-height: 1.5;
+        }
+
+        .event-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: #f1f5f9;
+        }
+
+        /* Form Body */
+        form {
+            padding: 35px 40px;
+        }
+
+        fieldset {
+            border: 1px solid var(--gray-border);
+            border-radius: 12px;
+            padding: 22px 25px;
+            margin-bottom: 28px;
+            background: #ffffff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        fieldset:hover {
+            border-color: #a5b4fc;
+            box-shadow: 0 4px 16px rgba(79, 70, 229, 0.04);
+        }
+
+        legend {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--primary);
+            padding: 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+
+        .req {
+            color: var(--danger);
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--gray-border);
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-main);
+            background-color: #fafbfc;
+            transition: all 0.2s ease-in-out;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #94a3b8;
+            font-size: 13.5px;
+        }
+
+        .helper-text {
+            font-size: 12px;
+            color: var(--gray-text);
+            margin-top: 4px;
+        }
+
+        /* Radio & Checkbox Groups */
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 6px;
+        }
+
+        .radio-item,
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 14px;
+            color: #334155;
+            cursor: pointer;
+        }
+
+        .radio-item input,
+        .checkbox-item input {
+            cursor: pointer;
+            accent-color: var(--primary);
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Range Slider Styling */
+        .range-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 6px;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .range-value {
+            min-width: 60px;
+            text-align: center;
+            background: #ede9fe;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        /* Price Calculation Card */
+        .price-summary-card {
+            background: linear-gradient(135deg, #eef2ff 0%, #f0fdf4 100%);
+            border: 1.5px dashed #818cf8;
+            border-radius: 10px;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .price-details {
+            font-size: 14px;
+            color: #3730a3;
+        }
+
+        .total-amount-box {
+            text-align: right;
+        }
+
+        .total-label {
+            font-size: 12px;
+            color: #4338ca;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .total-price {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1e1b4b;
+        }
+
+        /* Coupon Section */
+        .coupon-box {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .coupon-btn {
+            background: #334155;
+            color: white;
+            border: none;
+            padding: 0 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .coupon-btn:hover {
+            background: #1e293b;
+        }
+
+        .coupon-feedback {
+            font-size: 12px;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* Action Buttons */
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        .btn-submit {
+            flex: 2;
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+            color: white;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(79, 70, 229, 0.3);
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-reset {
+            flex: 1;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 14px 20px;
+            border: 1px solid var(--gray-border);
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-reset:hover {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+
+        /* Confirmation Ticket Modal / Card */
+        .page-footer {
+            max-width: 900px;
+            margin: 20px auto 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray-text);
+            line-height: 1.6;
+        }
+
+        .page-footer strong {
+            color: var(--text-main);
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        #ticketModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 40px 15px;
+        }
+
+        .ticket-card {
+            max-width: 620px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ticket-header {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .ticket-header h2 {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .ticket-body {
+            padding: 28px;
+        }
+
+        .ticket-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #e2e8f0;
+            font-size: 14px;
+        }
+
+        .ticket-row:last-child {
+            border-bottom: none;
+        }
+
+        .t-label {
+            color: var(--gray-text);
+            font-weight: 600;
+        }
+
+        .t-value {
+            color: var(--text-main);
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .ticket-stub {
+            background: #f8fafc;
+            border-top: 2px dashed #cbd5e1;
+            padding: 20px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .barcode-mock {
+            font-family: monospace;
+            letter-spacing: 4px;
+            font-size: 18px;
+            color: #334155;
+            font-weight: bold;
+        }
+
+        .ticket-actions {
+            display: flex;
+            gap: 12px;
+            padding: 20px 28px;
+            background: white;
+        }
+
+        .btn-print {
+            flex: 1;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-close {
+            flex: 1;
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid var(--gray-border);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: span 1;
+            }
+
+            form {
+                padding: 25px 20px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header Section -->
+        <div class="form-header">
+            <span class="student-badge">Student Project | Atharv Lulekar (PRN: 24070521036)</span>
+            <h1>Technical Workshop Ticket Booking</h1>
+            <p>Annual Student TechFest 2026 &bull; Advanced Skill Development Hands-on Bootcamp Series</p>
+            <div class="event-tags">
+                <span class="tag">&#x1F4CD; Campus Auditorium &amp; Virtual Labs</span>
+                <span class="tag">&#x1F393; Verified Certificates Provided</span>
+                <span class="tag">&#x1F4BB; Hands-on Coding Sessions</span>
+                <span class="tag">&#x26A1; Limited Seats Available</span>
+            </div>
+        </div>
+
+        <!-- Ticket Booking Form -->
+        <form id="workshopForm" onsubmit="return handleBooking(event)" onreset="handleReset()">
+
+            <!-- FIELDSET 1: Student Personal Details -->
+            <fieldset>
+                <legend><span>&#x1F464;</span> 1. Student Personal Information</legend>
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="req">*</span></label>
+                        <input type="text" id="fullName" name="fullName" placeholder="e.g., Atharv Lulekar" required
+                            pattern="^[a-zA-Z\s]{3,50}$" title="Name should only contain letters and be at least 3 characters">
+                        <span class="helper-text">As it will appear on your workshop certificate</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentPrn">PRN / Roll Number <span class="req">*</span></label>
+                        <input type="text" id="studentPrn" name="studentPrn" placeholder="e.g., 24070521036" required
+                            pattern="^[0-9A-Za-z]{6,15}$" title="Enter a valid PRN/Roll Number (6-15 alphanumeric characters)">
+                        <span class="helper-text">University or College Roll Number</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Student Email ID <span class="req">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="e.g., student@university.edu" required>
+                        <span class="helper-text">Ticket confirmation and lab links will be emailed here</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Mobile Number (WhatsApp) <span class="req">*</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="e.g., 9876543210" required
+                            pattern="[6-9][0-9]{9}" title="Please enter a valid 10-digit Indian mobile number">
+                        <span class="helper-text">For SMS notifications &amp; workshop updates</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth <span class="req">*</span></label>
+                        <input type="date" id="dob" name="dob" required max="2010-01-01" min="1990-01-01">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender <span class="req">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="gender" value="Female" required checked> Female
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="gender" value="Male" required> Male
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="gender" value="Other" required> Other
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <!-- FIELDSET 2: Academic Affiliation -->
+            <fieldset>
+                <legend><span>&#x1F393;</span> 2. Academic Affiliation</legend>
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="college">College / University Name <span class="req">*</span></label>
+                        <input type="text" id="college" name="college" list="collegeList"
+                            placeholder="Type or select college name" required>
+                        <datalist id="collegeList">
+                            <option value="Symbiosis Institute of Technology (SIT)">
+                            <option value="MIT World Peace University">
+                            <option value="College of Engineering Pune (COEP)">
+                            <option value="Pune Institute of Computer Technology (PICT)">
+                            <option value="Vishwakarma Institute of Technology (VIT)">
+                            <option value="Other University / Institute">
+                        </datalist>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department / Branch <span class="req">*</span></label>
+                        <select id="department" name="department" required>
+                            <option value="" disabled selected>-- Select Your Branch --</option>
+                            <optgroup label="Computer &amp; IT Sciences">
+                                <option value="Computer Science and Engineering (CSE)">Computer Science &amp; Engineering</option>
+                                <option value="Information Technology (IT)">Information Technology</option>
+                                <option value="Artificial Intelligence &amp; Data Science">AI &amp; Data Science</option>
+                                <option value="Robotics &amp; Automation">Robotics &amp; Automation</option>
+                            </optgroup>
+                            <optgroup label="Electronics &amp; Other">
+                                <option value="Electronics &amp; Telecommunication (ENTC)">Electronics &amp; Telecommunication</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                <option value="Other Branch">Other Branch</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Year of Study <span class="req">*</span></label>
+                        <select id="year" name="year" required>
+                            <option value="" disabled selected>-- Select Academic Year --</option>
+                            <option value="First Year (FE)">First Year (FE)</option>
+                            <option value="Second Year (SE)">Second Year (SE)</option>
+                            <option value="Third Year (TE) - Sem 5/6" selected>Third Year (TE) - Sem 5/6</option>
+                            <option value="Final Year (BE)">Final Year (BE)</option>
+                            <option value="Postgraduate (M.Tech / MCA)">Postgraduate (M.Tech / MCA)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentIdFile">Upload Student ID Proof (Optional)</label>
+                        <input type="file" id="studentIdFile" name="studentIdFile" accept=".jpg, .jpeg, .png, .pdf">
+                        <span class="helper-text">Accepts JPG, PNG, or PDF (Max 2MB) for student discount eligibility</span>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <!-- FIELDSET 3: Workshop Selection & Ticket Booking -->
+            <fieldset>
+                <legend><span>&#x1F3AB;</span> 3. Workshop Selection &amp; Ticket Options</legend>
+                <div class="form-grid">
+
+                    <div class="form-group full-width">
+                        <label for="workshopTrack">Select Workshop Track <span class="req">*</span></label>
+                        <select id="workshopTrack" name="workshopTrack" required onchange="calculatePrice()">
+                            <option value="" disabled selected>-- Choose Technical Track --</option>
+                            <option value="Full Stack Modern Web Development (React & Node.js)">
+                                Track A: Full Stack Modern Web Development (HTML5, Tailwind, React &amp; Node.js)
+                            </option>
+                            <option value="Applied Generative AI & Prompt Engineering">
+                                Track B: Applied Generative AI, LLMs &amp; LangChain Hands-on
+                            </option>
+                            <option value="Cloud Native Architecture with Docker & Kubernetes">
+                                Track C: Cloud Computing, Docker Containers &amp; Kubernetes DevOps
+                            </option>
+                            <option value="Cybersecurity & Ethical Hacking Practical Defense">
+                                Track D: Cybersecurity, Network Penetration &amp; Web Defense
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="batchSession">Workshop Date &amp; Batch <span class="req">*</span></label>
+                        <select id="batchSession" name="batchSession" required>
+                            <option value="Saturday Morning (Oct 10, 2026 - 09:00 AM to 01:00 PM)">
+                                Oct 10, 2026 - Morning Slot (09:00 AM - 01:00 PM)
+                            </option>
+                            <option value="Saturday Afternoon (Oct 10, 2026 - 02:00 PM to 06:00 PM)">
+                                Oct 10, 2026 - Afternoon Slot (02:00 PM - 06:00 PM)
+                            </option>
+                            <option value="Sunday Intensive (Oct 11, 2026 - 10:00 AM to 05:00 PM)">
+                                Oct 11, 2026 - Full Day Intensive (10:00 AM - 05:00 PM)
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mode of Attendance <span class="req">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="attendanceMode" value="In-Person (Campus Lab)" checked>
+                                &#x1F3DB; In-Person (On-Campus Lab)
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="attendanceMode" value="Virtual (Live Zoom Stream)">
+                                &#x1F4BB; Virtual (Live Interactive Zoom)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ticketType">Ticket Tier <span class="req">*</span></label>
+                        <select id="ticketType" name="ticketType" required onchange="calculatePrice()">
+                            <option value="199" data-name="Early Bird Student Pass">Early Bird Student Pass - &#8377;199</option>
+                            <option value="299" data-name="Standard Student Pass" selected>Standard Student Pass - &#8377;299</option>
+                            <option value="499" data-name="VIP Hands-on Bootcamp + Hardware Kit">VIP Pass + Swag &amp; Hardware Kit - &#8377;499</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ticketQuantity">Number of Tickets <span class="req">*</span></label>
+                        <input type="number" id="ticketQuantity" name="ticketQuantity" min="1" max="5" value="1" required
+                            oninput="calculatePrice()">
+                        <span class="helper-text">Max 5 tickets per student PRN</span>
+                    </div>
+
+                    <!-- Dynamic Live Price Calculation Summary -->
+                    <div class="full-width">
+                        <div class="price-summary-card">
+                            <div class="price-details">
+                                <strong id="summaryTier">Standard Student Pass</strong> &times;
+                                <span id="summaryQty">1</span> ticket(s)<br>
+                                <span style="font-size: 12px; color: #6b7280;">Includes digital certificate, course source code &amp; lab environment access</span>
+                            </div>
+                            <div class="total-amount-box">
+                                <div class="total-label">Payable Amount</div>
+                                <div class="total-price" id="totalDisplay">&#8377;299</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <!-- FIELDSET 4: Technical Background & Preferences -->
+            <fieldset>
+                <legend><span>&#x2699;</span> 4. Technical Profile &amp; Preferences</legend>
+                <div class="form-grid">
+
+                    <div class="form-group full-width">
+                        <label for="experienceLevel">Self-Rated Programming Proficiency (1 = Beginner, 10 = Expert)</label>
+                        <div class="range-container">
+                            <span>1 (Beginner)</span>
+                            <input type="range" id="experienceLevel" name="experienceLevel" min="1" max="10" value="5"
+                                oninput="updateRangeValue(this.value)">
+                            <span>10 (Expert)</span>
+                            <span class="range-value" id="rangeDisplay">5 / 10</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Technical Topics You Want Covered (Select all that interest you):</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="topics" value="Frontend & UI/UX" checked> Frontend &amp; UI/UX
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="topics" value="REST & GraphQL APIs" checked> REST &amp; GraphQL APIs
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="topics" value="Database Optimization"> Database Optimization
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="topics" value="DevOps & Deployment"> DevOps &amp; Deployment
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="topics" value="AI Agent Integration"> AI Agent Integration
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bringing Personal Laptop? <span class="req">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="laptop" value="Yes" checked> Yes (Recommended)
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="laptop" value="No"> No (Use Campus Workstation)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="osPreference">Laptop Operating System</label>
+                        <select id="osPreference" name="osPreference">
+                            <option value="Windows 11 / 10" selected>Windows 11 / 10</option>
+                            <option value="macOS (Apple Silicon / Intel)">macOS</option>
+                            <option value="Linux (Ubuntu / Fedora / Arch)">Linux</option>
+                            <option value="Other / Not Bringing">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tshirtSize">Workshop T-shirt / Kit Size</label>
+                        <select id="tshirtSize" name="tshirtSize">
+                            <option value="S">Small (S)</option>
+                            <option value="M" selected>Medium (M)</option>
+                            <option value="L">Large (L)</option>
+                            <option value="XL">Extra Large (XL)</option>
+                            <option value="XXL">Double Extra Large (XXL)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="diet">Refreshment Preference (For Campus Attendees)</label>
+                        <select id="diet" name="diet">
+                            <option value="Vegetarian" selected>Vegetarian</option>
+                            <option value="Non-Vegetarian">Non-Vegetarian</option>
+                            <option value="Jain">Jain</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="specialQuestions">Questions or Specific Expectations for the Speakers</label>
+                        <textarea id="specialQuestions" name="specialQuestions" rows="3"
+                            placeholder="Mention any specific libraries, problem statements, or career guidance questions you would like addressed..."></textarea>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <!-- FIELDSET 5: Payment & Promo Code -->
+            <fieldset>
+                <legend><span>&#x1F4B3;</span> 5. Payment Details &amp; Discount</legend>
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="paymentMethod">Payment Method <span class="req">*</span></label>
+                        <select id="paymentMethod" name="paymentMethod" required>
+                            <option value="UPI / QR Code (GooglePay, PhonePe, Paytm)" selected>UPI / QR Code (GPay, PhonePe, Paytm)</option>
+                            <option value="Debit Card / Credit Card">Debit Card / Credit Card</option>
+                            <option value="Net Banking">Net Banking</option>
+                            <option value="College Sponsored Waiver">College Sponsored Free Pass</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transactionId">Transaction / Reference ID <span class="req">*</span></label>
+                        <input type="text" id="transactionId" name="transactionId" placeholder="e.g., UPI-893420194821" required
+                            pattern="^[a-zA-Z0-9\-_]{6,25}$" title="Enter valid reference/transaction number">
+                        <span class="helper-text">Enter transaction ID after completing the transfer</span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="promoCode">Student Promo / Discount Code</label>
+                        <div class="coupon-box">
+                            <input type="text" id="promoCode" placeholder="Enter coupon (e.g. STUDENT50)">
+                            <button type="button" class="coupon-btn" onclick="applyCoupon()">Apply Coupon</button>
+                        </div>
+                        <div id="couponFeedback" class="coupon-feedback"></div>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <!-- FIELDSET 6: Declaration & Terms -->
+            <fieldset>
+                <legend><span>&#x1F4DC;</span> 6. Declaration &amp; Submission</legend>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 6px;">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="terms" required>
+                        <span>I confirm that the above details are accurate and I agree to abide by the <strong>Workshop Code of Conduct</strong> and lab regulations. <span class="req">*</span></span>
+                    </label>
+
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="newsletter" checked>
+                        <span>Subscribe to notifications about upcoming hackathons, tech talks, and internship opportunities.</span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- Buttons -->
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">
+                    <span>&#x1F3AB;</span> Confirm &amp; Generate Ticket
+                </button>
+                <button type="reset" class="btn-reset">
+                    <span>&#x1F504;</span> Reset Form
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- Submission Footer -->
+    <p class="page-footer">
+        Practical 10.1 &bull; Submitted by <strong>Atharv Lulekar</strong> (PRN: 24070521036)<br>
+        HTML5 Form Controls &amp; Validation &mdash; JavaScript Lab
+    </p>
+
+    <!-- TICKET CONFIRMATION MODAL -->
+    <div id="ticketModal">
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <h2>&#x2705; Ticket Booking Confirmed!</h2>
+                <p style="font-size: 13px; margin-top: 4px; opacity: 0.9;">Annual Student Technical Workshop 2026</p>
+            </div>
+
+            <div class="ticket-body">
+                <div class="ticket-row">
+                    <span class="t-label">Booking Reference</span>
+                    <span class="t-value" id="ticketNumber" style="color: var(--primary);"></span>
+                </div>
+                <div class="ticket-row">
+                    <span class="t-label">Attendee Name</span>
+                    <span class="t-value" id="tName"></span>
+                </div>
+                <div class="ticket-row">
+                    <span class="t-label">Student PRN</span>
+                    <span class="t-value" id="tPrn"></span>
+                </div>
+                <div class="ticket-row">
+                    <span class="t-label">College / Branch</span>
+                    <span class="t-value" id="tCollege"></span>
+                </div>
+                <div class="ticket-row">
+                    <span class="t-label">Selected Track</span>
+                    <span class="t-value" id="tTrack"></span>
+                </div>
+                <div class="ticket-row">
+                    <span class="t-label">Session / Date</span>
+                    <span class="t-value" id="tBatch"></span>
+                </div>
+                <div class="ticket-row">
+                    <span class="t-label">Attendance Mode</span>
+                    <span class="t-value" id="tMode"></span>
+                </div>
+                <div class="ticket-row">
+                    <span class="t-label">Quantity &amp; Tier</span>
+                    <span class="t-value" id="tQtyTier"></span>
+                </div>
+                <div class="ticket-row">
+                    <span class="t-label">Total Amount Paid</span>
+                    <span class="t-value" id="tTotal" style="color: #059669; font-size: 16px;"></span>
+                </div>
+                <div class="ticket-row">
+                    <span class="t-label">Transaction ID</span>
+                    <span class="t-value" id="tTxn"></span>
+                </div>
+            </div>
+
+            <div class="ticket-stub">
+                <div>
+                    <span style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 700;">Scan at Workshop Entrance</span>
+                    <div class="barcode-mock">&#124;&#124;&#124;&#124; &#124;&#124;&#124;&#124; &#124;&#124;&#124; &#124;&#124;&#124;&#124;&#124; &#124;&#124;</div>
+                </div>
+                <div style="font-size: 32px;">&#x1F4F1;</div>
+            </div>
+
+            <div class="ticket-actions">
+                <button type="button" class="btn-print" onclick="window.print()">&#x1F5A8; Print / Download Ticket</button>
+                <button type="button" class="btn-close" onclick="closeTicketModal()">Close</button>
+            </div>
+
+            <p style="text-align: center; font-size: 12px; color: #64748b; padding: 0 20px 18px;">
+                Generated by Atharv Lulekar &bull; PRN: 24070521036
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Calculations, Promo Code & Confirmation Ticket -->
+    <script>
+        let discount = 0;
+
+        function updateRangeValue(val) {
+            document.getElementById('rangeDisplay').textContent = val + ' / 10';
+        }
+
+        function calculatePrice() {
+            const ticketSelect = document.getElementById('ticketType');
+            const unitPrice = parseInt(ticketSelect.value) || 0;
+            const selectedOption = ticketSelect.options[ticketSelect.selectedIndex];
+            const tierName = selectedOption.getAttribute('data-name') || 'Standard Pass';
+
+            const qty = Math.max(1, parseInt(document.getElementById('ticketQuantity').value) || 1);
+
+            let subtotal = unitPrice * qty;
+            let finalAmount = Math.max(0, subtotal - discount);
+
+            document.getElementById('summaryTier').textContent = tierName;
+            document.getElementById('summaryQty').textContent = qty;
+            document.getElementById('totalDisplay').innerHTML = '&#8377;' + finalAmount;
+
+            return finalAmount;
+        }
+
+        function applyCoupon() {
+            const codeInput = document.getElementById('promoCode');
+            const feedback = document.getElementById('couponFeedback');
+            const code = codeInput.value.trim().toUpperCase();
+
+            if (code === 'STUDENT50') {
+                discount = 50;
+                feedback.style.color = '#059669';
+                feedback.textContent = 'Awesome! Flat Rs.50 student discount applied successfully!';
+            } else if (code === 'CAMPUS100') {
+                discount = 100;
+                feedback.style.color = '#059669';
+                feedback.textContent = 'Special Campus Partner coupon: Rs.100 discount applied!';
+            } else if (code === '') {
+                discount = 0;
+                feedback.textContent = '';
+            } else {
+                discount = 0;
+                feedback.style.color = '#dc2626';
+                feedback.textContent = 'Invalid promo code. Try "STUDENT50" for Rs.50 off.';
+            }
+
+            calculatePrice();
+        }
+
+        function handleBooking(event) {
+            event.preventDefault();
+
+            // Gather values
+            const name = document.getElementById('fullName').value.trim();
+            const prn = document.getElementById('studentPrn').value.trim();
+            const college = document.getElementById('college').value.trim();
+            const dept = document.getElementById('department').value;
+            const track = document.getElementById('workshopTrack').value;
+            const batch = document.getElementById('batchSession').value;
+            const mode = document.querySelector('input[name="attendanceMode"]:checked').value;
+            const tierSelect = document.getElementById('ticketType');
+            const tierName = tierSelect.options[tierSelect.selectedIndex].getAttribute('data-name');
+            const qty = document.getElementById('ticketQuantity').value;
+            const finalAmount = calculatePrice();
+            const txn = document.getElementById('transactionId').value.trim();
+
+            // Generate realistic random ticket reference number
+            const randomCode = Math.floor(100000 + Math.random() * 900000);
+            const ticketId = 'WKSP-2026-' + randomCode;
+
+            // Populate Ticket Modal
+            document.getElementById('ticketNumber').textContent = ticketId;
+            document.getElementById('tName').textContent = name;
+            document.getElementById('tPrn').textContent = prn;
+            document.getElementById('tCollege').textContent = college + ' (' + dept + ')';
+            document.getElementById('tTrack').textContent = track;
+            document.getElementById('tBatch').textContent = batch;
+            document.getElementById('tMode').textContent = mode;
+            document.getElementById('tQtyTier').textContent = qty + ' \u00D7 ' + tierName;
+            document.getElementById('tTotal').textContent = '\u20B9' + finalAmount;
+            document.getElementById('tTxn').textContent = txn;
+
+            // Show modal
+            const modal = document.getElementById('ticketModal');
+            modal.style.display = 'block';
+            modal.scrollTop = 0;
+            document.body.classList.add('modal-open');
+            return false;
+        }
+
+        function closeTicketModal() {
+            document.getElementById('ticketModal').style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
+
+        function handleReset() {
+            discount = 0;
+            document.getElementById('couponFeedback').textContent = '';
+            setTimeout(() => {
+                updateRangeValue(5);
+                calculatePrice();
+            }, 50);
+        }
+
+        // Close the ticket on Escape, or by clicking the dim backdrop
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeTicketModal();
+            }
+        });
+
+        document.getElementById('ticketModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTicketModal();
+            }
+        });
+
+        // Initialize on load
+        window.onload = function() {
+            calculatePrice();
+            updateRangeValue(5);
+        };
+    </script>
+
+</body>
+
+</html>

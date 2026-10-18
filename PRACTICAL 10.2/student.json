@@ -1,0 +1,26 @@
+[
+    {
+        "id": "24070521036",
+        "name": "Atharv Lulekar",
+        "department": "CSE",
+        "marks": 91
+    },
+    {
+        "id": "24070521037",
+        "name": "Riya",
+        "department": "CSE",
+        "marks": 85
+    },
+    {
+        "id": "24070521038",
+        "name": "Ayush",
+        "department": "AIML",
+        "marks": 92
+    },
+    {
+        "id": "24070521039",
+        "name": "Amit",
+        "department": "Data Science",
+        "marks": 88
+    }
+]

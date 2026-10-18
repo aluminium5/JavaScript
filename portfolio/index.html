@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Atharv Lulekar - Computer Science student (AI &amp; ML specialisation) at Symbiosis Institute of Technology, Nagpur. Portfolio of web development and machine learning work." />
+    <meta name="author" content="Atharv Lulekar" />
+    <title>Atharv Lulekar &mdash; CSE Student &amp; Front-End Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ============ NAVIGATION ============ -->
+    <header class="nav" id="nav">
+        <nav class="nav-inner">
+            <a class="brand" href="#top">
+                <span class="brand-mark">AL</span>
+                <span class="brand-text">Atharv Lulekar</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"
+                aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#labs">Labs</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Switch colour theme" title="Switch theme">
+                        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4.2" />
+                            <path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9" />
+                        </svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 14.5A8.2 8.2 0 0 1 9.5 4 8.3 8.3 0 1 0 20 14.5Z" />
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="top">
+
+        <!-- ============ HERO ============ -->
+        <section class="hero">
+            <div class="wrap hero-grid">
+
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">Computer Science &middot; AI &amp; ML Specialisation &middot; V Semester</p>
+
+                    <h1>
+                        Atharv Lulekar
+                    </h1>
+
+                    <p class="lede">
+                        A Computer Science student specialising in Artificial Intelligence &amp; Machine Learning
+                        &mdash; and someone who learns by building. This semester alone I shipped
+                        <strong>20 working web applications</strong> across 10 laboratory practicals, written in
+                        plain JavaScript: DOM manipulation, regular expressions, the Fetch API and browser storage.
+                    </p>
+
+                    <p class="id-line">
+                        PRN 24070521036 &nbsp;&middot;&nbsp; Symbiosis Institute of Technology, Nagpur
+                    </p>
+
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="#projects">View my work</a>
+                        <a class="btn btn-ghost" href="https://github.com/aluminium5" target="_blank" rel="noopener">
+                            GitHub
+                        </a>
+                        <button class="btn btn-ghost" id="resumeBtn">Download résumé</button>
+                    </div>
+                </div>
+
+                <div class="hero-side reveal">
+                    <img class="avatar-img" src="assets/profile.jpg" alt="Portrait of Atharv Lulekar" />
+                </div>
+
+            </div>
+
+            <!-- ============ STAT ROW ============ -->
+            <div class="wrap">
+                <div class="stat-row reveal">
+                    <div class="stat">
+                        <span class="stat-value">10</span>
+                        <span class="stat-label">Practicals completed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">20</span>
+                        <span class="stat-label">Lab apps built</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">0</span>
+                        <span class="stat-label">Frameworks used</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section id="about" class="section">
+            <div class="wrap">
+                <p class="section-num">01</p>
+                <h2 class="section-title reveal">About me</h2>
+
+                <div class="about-grid">
+                    <div class="reveal">
+                        <p>
+                            I am a Computer Science undergraduate at Symbiosis Institute of Technology, Nagpur,
+                            specialising in Artificial Intelligence &amp; Machine Learning and currently in my fifth
+                            semester. Alongside that I build for the web &mdash; the part of the stack a person
+                            actually touches.
+                        </p>
+                        <p>
+                            I like learning a language by building with it rather than reading about it. Every
+                            concept from my JavaScript laboratory became a small, complete application: closures
+                            became a vehicle registration validator, <code>reduce()</code> became a shopping cart,
+                            regular expressions became an email and password checker, and the Fetch API became a
+                            live student records table.
+                        </p>
+                        <p>
+                            This portfolio is itself part of that practice. It is written in hand-rolled HTML, CSS
+                            and vanilla JavaScript &mdash; the project cards below are rendered with
+                            <code>map()</code>, filtered with <code>filter()</code>, revealed with
+                            <code>IntersectionObserver</code>, and the theme you are reading it in is remembered
+                            using <code>localStorage</code>, exactly as taught in Practical 9.
+                        </p>
+                    </div>
+
+                    <aside class="about-card reveal">
+                        <h3>At a glance</h3>
+                        <dl>
+                            <dt>Specialisation</dt>
+                            <dd>Artificial Intelligence &amp; Machine Learning</dd>
+
+                            <dt>Also working on</dt>
+                            <dd>Generative AI, LLMs and web development</dd>
+
+                            <dt>Approach</dt>
+                            <dd>Learn a language by building with it</dd>
+
+                            <dt>Based in</dt>
+                            <dd>Nagpur, Maharashtra, India</dd>
+                        </dl>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EDUCATION ============ -->
+        <section id="education" class="section section-alt">
+            <div class="wrap">
+                <p class="section-num">02</p>
+                <h2 class="section-title reveal">Education</h2>
+
+                <ol class="timeline">
+                    <li class="timeline-item reveal">
+                        <span class="timeline-date">2024 &mdash; 2028 (expected)</span>
+                        <h3>B.Tech, Computer Science &mdash; AI &amp; ML Specialisation</h3>
+                        <p class="timeline-org">Symbiosis Institute of Technology (SIT), Nagpur</p>
+                        <p class="timeline-grade">CGPA 8.05 &middot; Currently in Semester V</p>
+                        <p class="timeline-note">
+                            PRN 24070521036 &middot; Relevant coursework: Machine Learning, Deep Learning, Neural
+                            Networks, Data Structures &amp; Algorithms, Database Management, Cloud Computing,
+                            Operating Systems, SQL and JavaScript &amp; Web Technologies.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item reveal">
+                        <span class="timeline-date">2024</span>
+                        <h3>Higher Secondary Certificate (Class XII)</h3>
+                        <p class="timeline-org">Shri Shivaji Science College, Nagpur</p>
+                        <p class="timeline-grade">82.67%</p>
+                    </li>
+
+                    <li class="timeline-item reveal">
+                        <span class="timeline-date">2022</span>
+                        <h3>Senior Secondary Certificate (Class X)</h3>
+                        <p class="timeline-org">Bhavan&rsquo;s B.P. Vidya Mandir, Nagpur</p>
+                        <p class="timeline-grade">93.8%</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============ SKILLS ============ -->
+        <section id="skills" class="section">
+            <div class="wrap">
+                <p class="section-num">03</p>
+                <h2 class="section-title reveal">Technical skills</h2>
+                <p class="section-lede reveal">
+                    Everything listed here was applied in a working application in this repository &mdash;
+                    the lab each one comes from is noted beside it.
+                </p>
+
+                <div class="skill-groups" id="skillGroups">
+                    <!-- rendered by script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PROJECTS ============ -->
+        <section id="projects" class="section section-alt">
+            <div class="wrap">
+                <p class="section-num">04</p>
+                <h2 class="section-title reveal">Projects</h2>
+                <p class="section-lede reveal">
+                    Twenty applications built across the JavaScript laboratory. Every card opens the live page
+                    from this repository &mdash; nothing here is a mock-up.
+                </p>
+
+                <div class="filters reveal" id="filters" role="group" aria-label="Filter projects by topic">
+                    <!-- rendered by script.js -->
+                </div>
+
+                <div class="project-grid" id="projectGrid">
+                    <!-- rendered by script.js -->
+                </div>
+
+                <p class="grid-empty" id="gridEmpty" hidden>No projects match that filter.</p>
+            </div>
+        </section>
+
+        <!-- ============ LAB LOG ============ -->
+        <section id="labs" class="section">
+            <div class="wrap">
+                <p class="section-num">05</p>
+                <h2 class="section-title reveal">Laboratory coursework</h2>
+                <p class="section-lede reveal">
+                    The full practical record for JavaScript Lab, Semester V.
+                </p>
+
+                <div class="table-wrap reveal">
+                    <table class="lab-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Topic</th>
+                                <th scope="col">Concepts applied</th>
+                            </tr>
+                        </thead>
+                        <tbody id="labTableBody">
+                            <!-- rendered by script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ GALLERY ============ -->
+        <section id="gallery" class="section section-alt">
+            <div class="wrap">
+                <p class="section-num">06</p>
+                <h2 class="section-title reveal">Gallery</h2>
+                <p class="section-lede reveal">
+                    Photographs from academic and technical activities.
+                </p>
+
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- rendered by script.js from the GALLERY array -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section id="contact" class="section">
+            <div class="wrap">
+                <p class="section-num">07</p>
+                <h2 class="section-title reveal">Get in touch</h2>
+
+                <div class="contact-grid">
+                    <div class="reveal">
+                        <p class="contact-lede">
+                            Open to internships and apprenticeships &mdash; short-term or long-term, pan-India
+                            and ready to relocate. The fastest way to reach me is email.
+                        </p>
+
+                        <ul class="contact-list">
+                            <li>
+                                <span class="contact-label">Email</span>
+                                <a class="contact-link" href="mailto:atharvlulekar5@gmail.com">atharvlulekar5@gmail.com</a>
+                            </li>
+                            <li>
+                                <span class="contact-label">Location</span>
+                                <span>Nagpur, Maharashtra, India</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="reveal">
+                        <ul class="link-list">
+                            <li>
+                                <a href="https://github.com/aluminium5" target="_blank" rel="noopener">
+                                    <span class="link-title">GitHub</span>
+                                    <span class="link-sub">github.com/aluminium5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/aluminium5/JavaScript" target="_blank" rel="noopener">
+                                    <span class="link-title">This coursework repository</span>
+                                    <span class="link-sub">aluminium5/JavaScript</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/atharvlulekar125" target="_blank" rel="noopener">
+                                    <span class="link-title">LinkedIn</span>
+                                    <span class="link-sub">linkedin.com/in/atharvlulekar125</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer-inner">
+            <p>&copy; <span id="year"></span> Atharv Lulekar &middot; PRN 24070521036</p>
+            <p class="footer-note">
+                Built from scratch with HTML5, CSS3 and vanilla JavaScript &middot; CA3 Mini Project, JavaScript Lab
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -339,31 +339,31 @@
                 isValid = false;
             }
 
-            // Validate username
+           
             if (!username) {
                 document.getElementById('username').closest('.form-group').classList.add('invalid');
                 isValid = false;
             }
 
-            // Validate email
+            
             if (email && !isValidEmail(email)) {
                 document.getElementById('email').closest('.form-group').classList.add('invalid');
                 isValid = false;
             }
 
-            // Validate password
+            
             if (!password || password.length < 6) {
                 document.getElementById('password').closest('.form-group').classList.add('invalid');
                 isValid = false;
             }
 
-            // Validate re-password
+            
             if (password !== repassword) {
                 document.getElementById('repassword').closest('.form-group').classList.add('invalid');
                 isValid = false;
             }
 
-            // Validate terms
+            
             if (!terms) {
                 alert('Please agree to the terms & conditions');
                 isValid = false;

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronos | Academic Day Planner | Atharv Lulekar (24070521036)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="student-badge">Atharv Lulekar <span>PRN: 24070521036</span></div>
+  <div class="glow g-top"></div>
+  <div class="glow g-bot"></div>
+
+  <main class="app">
+    <header class="top">
+      <div>
+        <p class="eyebrow">ACADEMIC HUB &bull; SCHEDULE ENGINE</p>
+        <h1>Chronos <span>Planner</span></h1>
+      </div>
+      <div class="clock">
+        <div id="liveTime">--:--:--</div>
+        <div id="liveDate">---</div>
+      </div>
+    </header>
+
+    <section class="hero glass" id="nextCard">
+      <div class="hero-tag">UPCOMING SESSION</div>
+      <h2 id="nextName">No upcoming class</h2>
+      <p id="nextMeta">Add a class to get started</p>
+      <div class="count" id="nextCount"></div>
+    </section>
+
+    <section class="grid">
+      <div class="glass schedule-panel">
+        <div class="nav">
+          <button id="prev" aria-label="Previous day">&#8592;</button>
+          <div class="nav-mid">
+            <strong id="dayLabel">Today</strong>
+            <small id="dayFull"></small>
+          </div>
+          <button id="next" aria-label="Next day">&#8594;</button>
+          <button id="today" class="ghost">Today</button>
+        </div>
+        <ul id="list" class="list"></ul>
+      </div>
+
+      <form id="form" class="glass form">
+        <h3>Schedule New Class</h3>
+        <label>Course Title
+          <input id="name" required placeholder="e.g. Distributed Systems">
+        </label>
+        <label>Lecture Hall / Lab
+          <input id="room" required placeholder="e.g. Auditorium B / Lab 4">
+        </label>
+        <label>Session Date
+          <input id="date" type="date" required>
+        </label>
+        <div class="two">
+          <label>Starts At
+            <input id="start" type="time" required>
+          </label>
+          <label>Ends At
+            <input id="end" type="time" required>
+          </label>
+        </div>
+        <button class="primary" type="submit">Confirm &amp; Add Class</button>
+        <p id="toast" class="toast"></p>
+      </form>
+    </section>
+
+    <p class="foot">Live syncing &bull; Optimized for modern browsers</p>
+  </main>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

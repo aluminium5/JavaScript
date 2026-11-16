@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhaaga | Festive Rakhi Studio | Atharv Lulekar (24070521036)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --maroon: #511f84;
+      --deep-maroon: #23043a;
+      --gold: #d9932b;
+      --gold-light: #fef8ee;
+      --gold-border: #f2d194;
+      --rose: #b958e6;
+      --rose-light: #fff0f5;
+      --cream: #fffaf5;
+      --ink: #2b1822;
+      --mut: #705b65;
+      --card-bg: #ffffff;
+      --shadow-sm: 0 4px 15px rgba(130, 21, 53, 0.06);
+      --shadow-md: 0 10px 30px rgba(130, 21, 53, 0.1);
+      --shadow-lg: 0 18px 45px rgba(130, 21, 53, 0.14);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 10% 10%, #fff2f6 0%, #fffaf5 50%, #fff7ef 100%);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .student-badge {
+      position: fixed;
+      top: 14px;
+      right: 18px;
+      z-index: 5;
+      padding: 8px 12px;
+      border: 1px solid rgba(185, 88, 230, 0.38);
+      border-radius: 999px;
+      background: rgba(255, 250, 245, 0.94);
+      color: #511f84;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 20px rgba(185, 88, 230, 0.14);
+    }
+
+    .student-badge span {
+      margin-left: 6px;
+      color: #9d1c44;
+      font-weight: 500;
+    }
+
+    /* Festive Offer Bar */
+    .offer {
+      background: linear-gradient(90deg, #470a61, #a475d1, #ac1ae0);
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 0.88rem;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 2px 10px rgba(130, 21, 53, 0.2);
+    }
+
+    .offer span.badge {
+      background: #fbd38d;
+      color: #540b22;
+      font-size: 0.72rem;
+      padding: 2px 9px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 25;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(217, 147, 43, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 6%;
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--maroon);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .logo .logo-tag {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      background: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      color: var(--deep-maroon);
+      padding: 3px 8px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-left: 4px;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.94rem;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    nav a:not(.cartBtn):hover {
+      color: var(--rose);
+    }
+
+    nav a:not(.cartBtn)::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--rose);
+      border-radius: 2px;
+      transition: width 0.25s ease;
+    }
+
+    nav a:not(.cartBtn):hover::after {
+      width: 100%;
+    }
+
+    /* Cart Button */
+    .cartBtn {
+      background: linear-gradient(135deg, var(--maroon), #9d1c44);
+      color: #fff;
+      border: 0;
+      padding: 9px 20px;
+      border-radius: 99px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(130, 21, 53, 0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cartBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(130, 21, 53, 0.35);
+    }
+
+    .cartBtn b {
+      background: #ffd166;
+      color: var(--deep-maroon);
+      padding: 2px 9px;
+      border-radius: 99px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.95fr;
+      align-items: center;
+      gap: 40px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 60px 6% 50px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffe8ee;
+      color: var(--rose);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(214, 51, 108, 0.2);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+      color: var(--deep-maroon);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rose);
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .hero p {
+      color: var(--mut);
+      max-width: 480px;
+      margin-bottom: 26px;
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #d6336c, #ba1653);
+      color: #fff;
+      padding: 13px 32px;
+      border-radius: 99px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.98rem;
+      box-shadow: 0 8px 24px rgba(214, 51, 108, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(214, 51, 108, 0.45);
+      color: #fff;
+    }
+
+    .secondary-cta {
+      display: inline-flex;
+      align-items: center;
+      color: var(--maroon);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.94rem;
+      padding: 12px 22px;
+      border-radius: 99px;
+      border: 1.5px solid rgba(130, 21, 53, 0.18);
+      background: #ffffff;
+      transition: all 0.2s;
+    }
+
+    .secondary-cta:hover {
+      border-color: var(--maroon);
+      background: #fff5f8;
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 18px;
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px dashed rgba(130, 21, 53, 0.15);
+    }
+
+    .hf-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .hf-item span {
+      font-size: 1.1rem;
+    }
+
+    .heroArt-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .heroArt {
+      position: relative;
+      padding: 14px;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(217, 147, 43, 0.25);
+      transition: transform 0.4s ease;
+    }
+
+    .heroArt:hover {
+      transform: translateY(-4px);
+    }
+
+    .heroArt img {
+      display: block;
+      width: 100%;
+      max-width: 440px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    .heroArt::after {
+      content: '🌸 Handpicked with Love';
+      position: absolute;
+      left: -12px;
+      bottom: 24px;
+      background: linear-gradient(135deg, var(--maroon), #a31d45);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 99px;
+      box-shadow: 0 10px 22px rgba(130, 21, 53, 0.35);
+      border: 2px solid #ffffff;
+    }
+
+    /* Sections */
+    .sec {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 48px 6%;
+    }
+
+    .sec-header {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .sec-header .tag {
+      color: var(--rose);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .sec h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+      color: var(--deep-maroon);
+      font-weight: 700;
+    }
+
+    .sec>p.sub,
+    .sec-header p {
+      text-align: center;
+      color: var(--mut);
+      margin-top: 8px;
+      font-size: 1rem;
+      max-width: 520px;
+      margin-inline: auto;
+    }
+
+    /* Products Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 26px;
+    }
+
+    .prod {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(220, 160, 140, 0.22);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .prod:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(217, 147, 43, 0.45);
+    }
+
+    .prod .img {
+      height: 200px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .prod .img svg {
+      width: 65%;
+      height: auto;
+      transition: transform 0.35s ease;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.08));
+    }
+
+    .prod:hover .img svg {
+      transform: scale(1.08);
+    }
+
+    .prod .info {
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .prod h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.18rem;
+      color: var(--deep-maroon);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .prod p {
+      font-size: 0.86rem;
+      color: var(--mut);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .prod .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #f6ecf0;
+    }
+
+    .price {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--maroon);
+      letter-spacing: -0.01em;
+    }
+
+    .add {
+      border: 1.5px solid var(--rose);
+      background: var(--rose-light);
+      color: var(--rose);
+      border-radius: 99px;
+      padding: 8px 18px;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .add:hover {
+      background: var(--rose);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(214, 51, 108, 0.3);
+      transform: scale(1.02);
+    }
+
+    /* Gift Combo Box */
+    .gift {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 38px;
+      align-items: center;
+      background: linear-gradient(135deg, #ffffff 0%, #fff3f6 60%, #fff7ec 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(217, 147, 43, 0.24);
+      position: relative;
+    }
+
+    .gift img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(130, 21, 53, 0.12);
+      border: 1px solid #fff;
+    }
+
+    .gift small {
+      color: var(--rose);
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .gift h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      text-align: left;
+      font-size: 2.1rem;
+      color: var(--deep-maroon);
+      margin: 4px 0 12px;
+      line-height: 1.2;
+    }
+
+    .gift p {
+      color: var(--mut);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .gift-perks-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .gift-bullet {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .gift-bullet span {
+      color: #27ae60;
+      font-weight: 800;
+    }
+
+    /* Perks */
+    .perks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .perk {
+      background: #ffffff;
+      padding: 26px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(220, 160, 140, 0.2);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .perk:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .perk-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .perk b {
+      color: var(--deep-maroon);
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .perk span {
+      font-size: 0.86rem;
+      color: var(--mut);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(180deg, #fff2f6 0%, #fee4ed 100%);
+      color: var(--deep-maroon);
+      text-align: center;
+      padding: 40px 20px 30px;
+      margin-top: 60px;
+      font-size: 0.94rem;
+      border-top: 1px solid rgba(217, 147, 43, 0.2);
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .footer-copy {
+      color: var(--mut);
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    /* Cart Drawer */
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 24, 34, 0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 50;
+    }
+
+    #drawer {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      width: min(420px, 92vw);
+      height: 100%;
+      background: #ffffff;
+      z-index: 60;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -12px 0 40px rgba(45, 24, 34, 0.25);
+      border-radius: 20px 0 0 20px;
+    }
+
+    body.open #overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    body.open #drawer {
+      right: 0;
+    }
+
+    #drawer h3 {
+      padding: 22px 24px;
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--deep-maroon);
+      font-size: 1.35rem;
+      border-bottom: 1px solid #f2e4e8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #drawer h3 button {
+      background: #fff0f5;
+      color: var(--maroon);
+      border: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: all 0.2s;
+    }
+
+    #drawer h3 button:hover {
+      background: var(--maroon);
+      color: #fff;
+    }
+
+    #items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 20px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .ci {
+      display: grid;
+      grid-template-columns: 58px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      background: #fff8fa;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid #f6e1e8;
+    }
+
+    .ci .th {
+      width: 58px;
+      height: 58px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .ci .th svg {
+      width: 75%;
+      height: auto;
+    }
+
+    .ci b {
+      font-size: 0.94rem;
+      color: var(--deep-maroon);
+      display: block;
+    }
+
+    .ci small {
+      color: var(--rose);
+      font-weight: 700;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      padding: 3px 8px;
+      border-radius: 99px;
+      border: 1px solid #eed6de;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .qty button {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 0;
+      background: var(--rose-light);
+      cursor: pointer;
+      color: var(--rose);
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .qty button:hover {
+      background: var(--rose);
+      color: #fff;
+    }
+
+    .tot {
+      padding: 20px 24px;
+      border-top: 1px solid #f2e4e8;
+      background: #ffffff;
+    }
+
+    .tot .l {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--deep-maroon);
+      margin-bottom: 16px;
+    }
+
+    .tot button {
+      width: 100%;
+      padding: 14px;
+      border: 0;
+      border-radius: 99px;
+      background: linear-gradient(135deg, var(--rose), #ba1653);
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(214, 51, 108, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .tot button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(214, 51, 108, 0.45);
+    }
+
+    .none {
+      text-align: center;
+      color: var(--mut);
+      padding: 40px 20px;
+      font-size: 0.95rem;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translate(-50%, 90px);
+      background: var(--deep-maroon);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 99px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      z-index: 70;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #toast.show {
+      transform: translate(-50%, 0);
+    }
+
+    @media (max-width: 820px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 40px;
+      }
+
+      .hero p {
+        margin-inline: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-features {
+        justify-content: center;
+      }
+
+      .heroArt {
+        max-width: 340px;
+        margin: 20px auto 0;
+      }
+
+      .gift {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 26px;
+      }
+
+      .gift h2 {
+        text-align: center;
+      }
+
+      .gift img {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .gift-perks-list {
+        text-align: left;
+        max-width: 300px;
+        margin-inline: auto;
+      }
+
+      nav a:not(.cartBtn) {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="student-badge">Atharv Lulekar <span>PRN: 24070521036</span></div>
+
+  <!-- Festive Banner -->
+  <div class="offer">
+    <span class="badge">Festive Offer</span>
+    <span>Free Roli-Chawal &amp; Handcrafted Greeting Card with every Rakhi</span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <a href="#top" class="logo">Dhaa<span>ga</span> <span class="logo-tag">Studio</span></a>
+    <nav>
+      <a href="#top">Home</a>
+      <a href="#shop">Collection</a>
+      <a href="#gift">Gift Box</a>
+      <a href="#promise">Our Promise</a>
+      <button class="cartBtn" id="openCart">
+        🛒 Cart <b id="cnt">0</b>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="top">
+    <div>
+      <div class="hero-pill">✨ Raksha Bandhan Special</div>
+      <h1>Tie the sacred bond with a <em>thread of love</em></h1>
+      <p>Handpicked artisan rakhis celebrating the timeless sibling bond. Crafted with pure threads, vibrant beads, and
+        festive blessings delivered straight to their doorstep.</p>
+      <div class="hero-actions">
+        <a class="cta" href="#shop">Explore Rakhis 🪢</a>
+        <a class="secondary-cta" href="#gift">View Gift Set 🎁</a>
+      </div>
+      <div class="hero-features">
+        <div class="hf-item"><span>✨</span> 100% Handcrafted</div>
+        <div class="hf-item"><span>🚀</span> Express Delivery</div>
+        <div class="hf-item"><span>💛</span> Free Pooja Kit</div>
+      </div>
+    </div>
+    <div class="heroArt-wrapper">
+      <div class="heroArt">
+        <img src="images/raksha-card.png" alt="Happy Raksha Bandhan card and thali">
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Collection -->
+  <section class="sec" id="shop">
+    <div class="sec-header">
+      <span class="tag">Curated Rakhis</span>
+      <h2>The Rakhi Collection</h2>
+      <p class="sub">Find a meaningful thread that matches their unique style and spirit.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- Complete Gift Set -->
+  <section class="sec" id="gift">
+    <div class="gift">
+      <img src="images/raksha-card.png" alt="Raksha Bandhan gift set">
+      <div>
+        <small>ALL-IN-ONE FESTIVE KIT</small>
+        <h2>Card + Pooja Thali Included With Every Order</h2>
+        <p>Each parcel includes an authentic Raksha Bandhan greeting card, roli (kumkum), and chawal (akshat), so the
+          pooja is ready the moment you unwrap the love.</p>
+        <div class="gift-perks-list">
+          <div class="gift-bullet"><span>✓</span> Handcrafted Greeting Card</div>
+          <div class="gift-bullet"><span>✓</span> Shubh Roli &amp; Akshat</div>
+          <div class="gift-bullet"><span>✓</span> Eco-friendly Packing</div>
+          <div class="gift-bullet"><span>✓</span> Safe Festival Delivery</div>
+        </div>
+        <a class="cta" href="#shop">Pick Your Rakhi 🪢</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Promise / Perks -->
+  <section class="sec" id="promise">
+    <div class="sec-header">
+      <span class="tag">Why Dhaaga</span>
+      <h2>Our Promise of Purity</h2>
+      <p>Made with devotion to make your Rakhi celebration unforgettable.</p>
+    </div>
+    <div class="perks">
+      <div class="perk">
+        <span class="perk-icon">🪢</span>
+        <b>Handcrafted Artistry</b>
+        <span>Created with love by traditional Indian weavers &amp; artisans</span>
+      </div>
+      <div class="perk">
+        <span class="perk-icon">⚡</span>
+        <b>Guaranteed Delivery</b>
+        <span>Priority festive shipping so it reaches safely before Muhurat</span>
+      </div>
+      <div class="perk">
+        <span class="perk-icon">🪔</span>
+        <b>Pooja Ready</b>
+        <span>Comes packed with ceremonial Roli, Chawal &amp; Rakhi Card</span>
+      </div>
+      <div class="perk">
+        <span class="perk-icon">💖</span>
+        <b>Hassle-Free Support</b>
+        <span>Friendly assistance and easy 7-day festive replacement guarantee</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-brand">Dhaaga Rakhi Studio</div>
+    <p>Celebrate the pure bond of protection, memories, and lifelong love.</p>
+    <p class="footer-copy">© 2024 Dhaaga Studio &bull; Handcrafted with ❤️ for Raksha Bandhan</p>
+  </footer>
+
+  <!-- Cart Drawer & Overlay -->
+  <div id="overlay"></div>
+  <aside id="drawer">
+    <h3>
+      <span>🛍️ Your Cart</span>
+      <button id="closeCart" aria-label="Close Cart">&times;</button>
+    </h3>
+    <div id="items"></div>
+    <div class="tot">
+      <div class="l">
+        <span>Total</span>
+        <span id="total">Rs 0</span>
+      </div>
+      <button id="checkout">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+  <!-- JavaScript Intact as requested -->
+  <script>
+    // ---- rakhi artwork (inline SVG, no images needed) ----
+    const art = (c1, c2, c3) => `<svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 60 Q50 20 100 50" stroke="${c1}" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M200 60 Q150 20 100 50" stroke="${c1}" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <circle cx="30" cy="48" r="5" fill="${c3}"/><circle cx="55" cy="38" r="5" fill="${c3}"/><circle cx="170" cy="48" r="5" fill="${c3}"/><circle cx="145" cy="38" r="5" fill="${c3}"/>
+    <circle cx="100" cy="68" r="34" fill="${c2}"/><circle cx="100" cy="68" r="26" fill="none" stroke="${c3}" stroke-width="3"/>
+    <circle cx="100" cy="68" r="13" fill="${c1}"/><circle cx="100" cy="68" r="5" fill="${c3}"/>
+    <path d="M100 100 L100 118" stroke="${c1}" stroke-width="4"/><circle cx="100" cy="116" r="5" fill="${c3}"/>
+  </svg>`;
+
+    const products = [
+      { id: 1, name: 'Royal Maroon Zari', desc: 'Gold zari centrepiece on a deep maroon thread.', price: 249, bg: '#f9d6df', a: ['#8e1b3d', '#d9a441', '#fff3c4'] },
+      { id: 2, name: 'Peacock Blue Beads', desc: 'Shimmering blue beads with a peacock charm.', price: 199, bg: '#d6ecf7', a: ['#1565c0', '#26a69a', '#ffffff'] },
+      { id: 3, name: 'Silver Om Rakhi', desc: 'Sterling-look Om pendant for a sacred touch.', price: 349, bg: '#e8e8f0', a: ['#455a64', '#cfd8dc', '#ffffff'] },
+      { id: 4, name: 'Kids Cartoon Rakhi', desc: 'Colourful, fun and light for little brothers.', price: 129, bg: '#fff0b8', a: ['#ef6c00', '#ffd54f', '#e53935'] },
+      { id: 5, name: 'Rudraksha Thread', desc: 'Natural rudraksha beads on a cotton thread.', price: 179, bg: '#e6dccb', a: ['#6d4c41', '#a1887f', '#ffe0b2'] },
+      { id: 6, name: 'Pearl Bhaiya-Bhabhi Set', desc: 'Matching rakhi and lumba pair with pearls.', price: 399, bg: '#fde3ee', a: ['#ad1457', '#f8bbd0', '#ffffff'] }
+    ];
+
+    let cart = JSON.parse(localStorage.getItem('dhaaga-cart')) || {};
+    const $ = (id) => document.getElementById(id);
+
+    $('grid').innerHTML = products.map(p => `
+    <article class="prod">
+      <div class="img" style="background:${p.bg}">${art(...p.a)}</div>
+      <div class="info"><h3>${p.name}</h3><p>${p.desc}</p>
+        <div class="row"><span class="price">Rs ${p.price}</span><button class="add" data-id="${p.id}">Add to cart</button></div>
+      </div></article>`).join('');
+
+    function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t.h); t.h = setTimeout(() => t.classList.remove('show'), 1600); }
+
+    function draw() {
+      localStorage.setItem('dhaaga-cart', JSON.stringify(cart));
+      const ids = Object.keys(cart);
+      $('cnt').textContent = ids.reduce((s, i) => s + cart[i], 0);
+      $('items').innerHTML = ids.length ? ids.map(i => {
+        const p = products.find(x => x.id == i);
+        return `<div class="ci"><div class="th" style="background:${p.bg}">${art(...p.a)}</div>
+        <div><b>${p.name}</b><small>Rs ${p.price}</small></div>
+        <div class="qty"><button data-m="${i}">-</button>${cart[i]}<button data-p="${i}">+</button></div></div>`;
+      }).join('') : '<div class="none">Your cart is empty</div>';
+      $('total').textContent = 'Rs ' + ids.reduce((s, i) => s + cart[i] * products.find(x => x.id == i).price, 0);
+    }
+
+    $('grid').addEventListener('click', (e) => {
+      const id = e.target.dataset.id; if (!id) return;
+      cart[id] = (cart[id] || 0) + 1; draw(); toast('Added to cart');
+    });
+    $('items').addEventListener('click', (e) => {
+      const p = e.target.dataset.p, m = e.target.dataset.m;
+      if (p) cart[p]++;
+      if (m) { cart[m]--; if (cart[m] <= 0) delete cart[m]; }
+      draw();
+    });
+    $('openCart').onclick = () => document.body.classList.add('open');
+    $('closeCart').onclick = $('overlay').onclick = () => document.body.classList.remove('open');
+    $('checkout').onclick = () => {
+      if (!Object.keys(cart).length) return toast('Cart is empty');
+      alert('Thank you! Your order has been placed. Happy Raksha Bandhan!');
+      cart = {}; draw(); document.body.classList.remove('open');
+    };
+    draw();
+  </script>
+</body>
+
+</html>

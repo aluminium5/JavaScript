@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillCraft Studio | Masterclass Registration | Atharv Lulekar (24070521036)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0f172a;
+    --primary: #4f46e5;
+    --primary-light: #eef2ff;
+    --teal: #0d9488;
+    --teal-light: #f0fdfa;
+    --bg: #f8fafc;
+    --line: #e2e8f0;
+    --mut: #64748b;
+    --card: #ffffff;
+    --shadow: 0 16px 40px -10px rgba(79, 70, 229, 0.12);
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+  }
+
+  .student-badge {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 5;
+    padding: 8px 12px;
+    border: 1px solid rgba(13, 148, 136, 0.35);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #3730a3;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.12);
+  }
+
+  .student-badge span {
+    margin-left: 6px;
+    color: #0f766e;
+    font-weight: 500;
+  }
+  .shell { width: 100%; max-width: 780px; }
+  
+  .brand { text-align: center; margin-bottom: 24px; }
+  .brand-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--primary);
+    background: var(--primary-light);
+    border: 1px solid rgba(79, 70, 229, 0.2);
+    padding: 4px 14px;
+    border-radius: 99px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .brand h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.1rem;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .brand h1 span {
+    background: linear-gradient(135deg, var(--primary), var(--teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .brand p { color: var(--mut); font-size: 0.95rem; margin-top: 4px; }
+
+  /* Stepper */
+  .steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: var(--line);
+    z-index: 0;
+  }
+  .step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    flex: 1;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--mut);
+  }
+  .step i {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    margin: 0 auto 6px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid var(--line);
+    font-style: normal;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--mut);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .step.on i {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+  }
+  .step.done i {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 34px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+  }
+  .pane { display: none; }
+  .pane.show { display: block; animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes slideIn { from { opacity: 0; transform: translateX(16px); } }
+  
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--ink);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .f { margin-bottom: 16px; }
+  .f label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #334155;
+  }
+  input, select, textarea {
+    width: 100%;
+    font: inherit;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    background: #fdfdfd;
+    color: var(--ink);
+    transition: all 0.2s ease;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  }
+  input.bad, select.bad { border-color: #ef4444; background: #fff5f5; }
+  .err { color: #ef4444; font-size: 0.76rem; min-height: 1.1em; display: block; margin-top: 4px; font-weight: 500; }
+
+  /* Workshop selection radio cards */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .cards input { display: none; }
+  .opt {
+    display: block;
+    padding: 18px 12px;
+    text-align: center;
+    border: 2px solid var(--line);
+    border-radius: 16px;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--ink);
+    background: #fdfdfd;
+    transition: all 0.25s ease;
+  }
+  .opt small {
+    display: block;
+    color: var(--teal);
+    font-weight: 800;
+    font-size: 0.88rem;
+    margin-top: 6px;
+  }
+  .opt:hover {
+    border-color: var(--primary);
+    background: #faf5ff;
+  }
+  .cards input:checked + .opt {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    color: var(--primary);
+    box-shadow: 0 6px 18px rgba(79, 70, 229, 0.15);
+  }
+
+  /* Counter */
+  .counter { display: flex; align-items: center; gap: 14px; }
+  .counter button {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 0;
+    background: var(--primary);
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .counter button:hover { background: #4338ca; transform: scale(1.05); }
+  .counter output { font-size: 1.35rem; font-weight: 800; min-width: 32px; text-align: center; color: var(--ink); }
+
+  /* Summary Box */
+  .sum {
+    background: #f8fafc;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    font-size: 0.94rem;
+  }
+  .sum div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .sum div:last-child {
+    border: 0;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--primary);
+    padding-top: 14px;
+    margin-top: 6px;
+    border-top: 2px solid var(--line);
+  }
+
+  .btns { display: flex; justify-content: space-between; margin-top: 26px; gap: 12px; }
+  .btn {
+    padding: 13px 28px;
+    border: 0;
+    border-radius: 12px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .back { background: #e2e8f0; color: #334155; }
+  .back:hover { background: #cbd5e1; }
+  .next {
+    background: var(--primary);
+    color: #fff;
+    margin-left: auto;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+  }
+  .next:hover { background: #4338ca; transform: translateY(-1px); }
+  .book {
+    background: linear-gradient(135deg, var(--primary), var(--teal));
+    color: #fff;
+    margin-left: auto;
+    box-shadow: 0 6px 20px rgba(13, 148, 136, 0.35);
+  }
+  .book:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .agree { display: flex; gap: 10px; align-items: center; margin-top: 16px; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+  .agree input { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; }
+
+  #okBox { display: none; text-align: center; padding: 24px 0; }
+  #okBox .tick {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: #fff;
+    font-size: 2.4rem;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 10px 24px rgba(13, 148, 136, 0.3);
+  }
+  #okBox code {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin: 10px 0 16px;
+  }
+
+  @media (max-width: 620px) {
+    .row, .cards { grid-template-columns: 1fr; }
+    .card { padding: 22px; }
+    .step span { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="student-badge">Atharv Lulekar <span>PRN: 24070521036</span></div>
+<div class="shell">
+  <div class="brand">
+    <span class="brand-badge">STUDENT TECH SERIES</span>
+    <h1>Skill<span>Craft</span> Masterclasses</h1>
+    <p>Reserve your workshop seat in 3 simple steps</p>
+  </div>
+
+  <div class="steps">
+    <div class="step on" data-s="0"><i>1</i><span>Student Info</span></div>
+    <div class="step" data-s="1"><i>2</i><span>Choose Track</span></div>
+    <div class="step" data-s="2"><i>3</i><span>Summary &amp; Pay</span></div>
+  </div>
+
+  <div class="card">
+    <form id="f" novalidate>
+      <section class="pane show">
+        <h2>1. Student Information</h2>
+        <div class="row">
+          <div class="f"><label>Full Name</label><input id="name" placeholder="John Doe"><span class="err"></span></div>
+          <div class="f"><label>PRN / Student ID</label><input id="prn" placeholder="e.g. 21070123001"><span class="err"></span></div>
+        </div>
+        <div class="row">
+          <div class="f"><label>College Email</label><input id="email" type="email" placeholder="name@college.edu"><span class="err"></span></div>
+          <div class="f"><label>Contact Mobile</label><input id="mobile" maxlength="10" placeholder="10-digit number"><span class="err"></span></div>
+        </div>
+        <div class="f"><label>Institution / College</label><input id="college" value="Symbiosis Institute of Technology, Nagpur"><span class="err"></span></div>
+        <div class="row">
+          <div class="f"><label>Engineering Branch</label>
+            <select id="branch"><option value="">Select Branch</option><option>Computer Science</option><option>Information Technology</option><option>Electronics &amp; Telecom</option><option>Mechanical</option><option>Civil</option></select><span class="err"></span></div>
+          <div class="f"><label>Year of Study</label>
+            <select id="year"><option value="">Select Year</option><option>First Year</option><option>Second Year</option><option>Third Year</option><option>Fourth Year</option></select><span class="err"></span></div>
+        </div>
+      </section>
+
+      <section class="pane">
+        <h2>2. Select Your Workshop Track</h2>
+        <div class="cards f">
+          <div><input type="radio" name="wtype" id="w1" value="Artificial Intelligence|300"><label class="opt" for="w1">AI &amp; ML<small>Rs 300</small></label></div>
+          <div><input type="radio" name="wtype" id="w2" value="Web Development|250"><label class="opt" for="w2">Fullstack Web<small>Rs 250</small></label></div>
+          <div><input type="radio" name="wtype" id="w3" value="Cyber Security|350"><label class="opt" for="w3">Cyber Security<small>Rs 350</small></label></div>
+        </div>
+        <span class="err" id="wErr"></span>
+        <div class="row">
+          <div class="f"><label>Preferred Date</label><input id="wdate" type="date"><span class="err"></span></div>
+          <div class="f"><label>Ticket Count</label>
+            <div class="counter"><button type="button" id="minus">-</button><output id="qty">1</output><button type="button" id="plus">+</button></div></div>
+        </div>
+        <div class="f"><label>Special Instructions / Hardware Needs</label><textarea id="extra" rows="3" placeholder="Need laptop access, dietary needs, team seating..."></textarea></div>
+      </section>
+
+      <section class="pane">
+        <h2>3. Review &amp; Confirm Booking</h2>
+        <div class="sum" id="sum"></div>
+        <label class="agree"><input type="checkbox" id="terms"> I agree to the event code of conduct and ticket terms</label>
+        <span class="err" id="tErr"></span>
+      </section>
+
+      <div class="btns">
+        <button type="button" class="btn back" id="back" style="visibility:hidden">Back</button>
+        <button type="button" class="btn next" id="next">Continue &rarr;</button>
+        <button type="submit" class="btn book" id="book" style="display:none">Confirm &amp; Book Ticket</button>
+      </div>
+    </form>
+
+    <div id="okBox">
+      <div class="tick">&#10003;</div>
+      <h2>Registration Confirmed!</h2>
+      <code id="bid"></code>
+      <p style="color:var(--mut);margin-bottom:18px">Your workshop pass has been generated and saved locally.</p>
+      <button class="btn next" style="margin:0" onclick="location.reload()">Book Another Pass</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const panes = document.querySelectorAll('.pane');
+const stepEls = document.querySelectorAll('.step');
+let cur = 0, qty = 1;
+$('wdate').min = new Date().toISOString().split('T')[0];
+
+function mark(id, msg) {
+  const el = $(id); const sp = el.parentElement.querySelector('.err');
+  el.classList.toggle('bad', !!msg); if (sp) sp.textContent = msg; return !msg;
+}
+function check(step) {
+  let ok = true;
+  if (step === 0) {
+    ok = mark('name', $('name').value.trim().length < 3 ? 'Enter your name' : '') && ok;
+    ok = mark('prn', !$('prn').value.trim() ? 'PRN required' : '') && ok;
+    ok = mark('email', !/^\S+@\S+\.\S+$/.test($('email').value) ? 'Valid email required' : '') && ok;
+    ok = mark('mobile', !/^[6-9]\d{9}$/.test($('mobile').value) ? '10-digit mobile required' : '') && ok;
+    ok = mark('college', !$('college').value.trim() ? 'Required' : '') && ok;
+    ok = mark('branch', !$('branch').value ? 'Select branch' : '') && ok;
+    ok = mark('year', !$('year').value ? 'Select year' : '') && ok;
+  }
+  if (step === 1) {
+    const w = document.querySelector('input[name=wtype]:checked');
+    $('wErr').textContent = w ? '' : 'Pick a workshop'; ok = !!w && ok;
+    ok = mark('wdate', !$('wdate').value ? 'Pick a date' : '') && ok;
+  }
+  return ok;
+}
+function go(n) {
+  cur = n;
+  panes.forEach((p, i) => p.classList.toggle('show', i === n));
+  stepEls.forEach((s, i) => { s.classList.toggle('on', i === n); s.classList.toggle('done', i < n); });
+  $('back').style.visibility = n ? 'visible' : 'hidden';
+  $('next').style.display = n < 2 ? 'block' : 'none';
+  $('book').style.display = n === 2 ? 'block' : 'none';
+  if (n === 2) summary();
+}
+function summary() {
+  const [type, price] = document.querySelector('input[name=wtype]:checked').value.split('|');
+  $('sum').innerHTML = `
+    <div><span>Student</span><span>${$('name').value} (${$('prn').value})</span></div>
+    <div><span>Branch / Year</span><span>${$('branch').value}, ${$('year').value}</span></div>
+    <div><span>Contact</span><span>${$('email').value}</span></div>
+    <div><span>Workshop Track</span><span>${type}</span></div>
+    <div><span>Event Date</span><span>${$('wdate').value}</span></div>
+    <div><span>Seat Count</span><span>${qty} x Rs ${price}</span></div>
+    <div><span>Total Payable</span><span>Rs ${qty * price}</span></div>`;
+}
+$('next').onclick = () => { if (check(cur)) go(cur + 1); };
+$('back').onclick = () => go(cur - 1);
+$('plus').onclick = () => { if (qty < 10) $('qty').textContent = ++qty; };
+$('minus').onclick = () => { if (qty > 1) $('qty').textContent = --qty; };
+
+$('f').addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (!$('terms').checked) { $('tErr').textContent = 'Please accept the terms'; return; }
+  const [type, price] = document.querySelector('input[name=wtype]:checked').value.split('|');
+  const id = 'TS' + Date.now().toString().slice(-6);
+  const rec = { id, name: $('name').value, prn: $('prn').value, email: $('email').value, mobile: $('mobile').value,
+    college: $('college').value, branch: $('branch').value, year: $('year').value, workshop: type,
+    date: $('wdate').value, tickets: qty, total: qty * price, extra: $('extra').value };
+  const all = JSON.parse(localStorage.getItem('workshopBookings')) || [];
+  all.push(rec); localStorage.setItem('workshopBookings', JSON.stringify(all));
+  alert('Workshop ticket booking saved successfully!');
+  $('f').style.display = 'none'; $('okBox').style.display = 'block'; $('bid').textContent = 'Booking ID: ' + id;
+});
+</script>
+</body>
+</html>

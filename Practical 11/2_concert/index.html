@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeFest Live | Concert Pass Booking | Atharv Lulekar (24070521036)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #090714;
+      --card: rgba(22, 17, 43, 0.75);
+      --border: rgba(147, 51, 234, 0.25);
+      --cyan: #06b6d4;
+      --pink: #f43f5e;
+      --purple: #a855f7;
+      --txt: #f8fafc;
+      --mut: #94a3b8;
+      --glow: rgba(168, 85, 247, 0.35);
+    }
+
+    body {
+      font-family: 'Outfit', 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at 15% 15%, #2a0845 0%, #090714 60%), radial-gradient(circle at 85% 85%, #18082c 0%, #090714 60%);
+      color: var(--txt);
+      min-height: 100vh;
+      padding: 36px 18px 48px;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .student-badge {
+      position: fixed;
+      top: 14px;
+      right: 18px;
+      z-index: 5;
+      padding: 8px 12px;
+      border: 1px solid rgba(6, 182, 212, 0.45);
+      border-radius: 999px;
+      background: rgba(10, 7, 24, 0.86);
+      color: #cffafe;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .student-badge span {
+      margin-left: 6px;
+      color: #fda4af;
+      font-weight: 500;
+    }
+
+    header {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    header .sub-badge {
+      display: inline-block;
+      letter-spacing: 0.25em;
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid rgba(6, 182, 212, 0.28);
+      padding: 4px 14px;
+      border-radius: 99px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    header h1 b {
+      background: linear-gradient(135deg, #f43f5e, #a855f7, #06b6d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    form,
+    .ticket {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label,
+    .lbl {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mut);
+    }
+
+    input,
+    select,
+    textarea {
+      font: inherit;
+      padding: 12px 14px;
+      background: rgba(10, 7, 24, 0.85);
+      color: var(--txt);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color-scheme: dark;
+      transition: all 0.2s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.25);
+    }
+
+    .err {
+      color: #fb7185;
+      font-size: 0.75rem;
+      min-height: 1.1em;
+      font-weight: 500;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chips input {
+      display: none;
+    }
+
+    .chips label {
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 99px;
+      cursor: pointer;
+      color: var(--mut);
+      background: rgba(255, 255, 255, 0.04);
+      transition: all 0.2s;
+    }
+
+    .chips label:hover {
+      color: #fff;
+      border-color: var(--purple);
+    }
+
+    .chips input:checked+label {
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+    }
+
+    .terms {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin: 8px 0 14px;
+      font-size: 0.88rem;
+    }
+
+    .terms input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--pink);
+      cursor: pointer;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 15px;
+      font: inherit;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 0;
+      border-radius: 14px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #f43f5e, #a855f7, #06b6d4);
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(244, 63, 94, 0.4);
+      transition: all 0.25s ease;
+    }
+
+    button[type="submit"]:hover {
+      filter: brightness(1.12);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(244, 63, 94, 0.55);
+    }
+
+    /* Right Side Ticket Preview Pass */
+    .ticket {
+      position: sticky;
+      top: 24px;
+      background: linear-gradient(160deg, rgba(32, 19, 58, 0.95), rgba(15, 10, 32, 0.95));
+      border: 2px dashed rgba(6, 182, 212, 0.45);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ticket::before,
+    .ticket::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: var(--bg);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .ticket::before {
+      left: -14px;
+    }
+
+    .ticket::after {
+      right: -14px;
+    }
+
+    .ticket-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--cyan);
+      background: rgba(6, 182, 212, 0.14);
+      padding: 3px 10px;
+      border-radius: 99px;
+      margin-bottom: 8px;
+    }
+
+    .ticket h3 {
+      color: #ffffff;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .ticket .big {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #f43f5e;
+      line-height: 1.25;
+    }
+
+    .ticket dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px 16px;
+      font-size: 0.9rem;
+      padding: 14px 0;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+    }
+
+    .ticket dt {
+      color: var(--mut);
+      font-weight: 600;
+    }
+
+    .ticket dd {
+      text-align: right;
+      word-break: break-word;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .total {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+
+    .saved {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--mut);
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      .wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+      }
+
+      .ticket {
+        position: static;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="student-badge">Atharv Lulekar <span>PRN: 24070521036</span></div>
+  <div class="wrap">
+    <header>
+      <div class="sub-badge">LIVE STAGE &bull; FESTIVAL 2024</div>
+      <h1>Vibe<b>Fest</b> Live</h1>
+    </header>
+
+    <form id="reg" novalidate>
+      <div class="row">
+        <div class="field"><label for="name">Full name</label><input id="name" placeholder="Your full name"><span
+            class="err"></span></div>
+        <div class="field"><label for="age">Age</label><input id="age" type="number" min="10" max="99"
+            placeholder="18"><span class="err"></span></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="email">Email</label><input id="email" type="email"
+            placeholder="you@domain.com"><span class="err"></span></div>
+        <div class="field"><label for="mobile">Mobile Number</label><input id="mobile" inputmode="numeric"
+            maxlength="10" placeholder="10-digit phone"><span class="err"></span></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="city">City</label><input id="city" placeholder="Nagpur"><span class="err"></span>
+        </div>
+        <div class="field"><label for="concert">Concert Selection</label>
+          <select id="concert">
+            <option value="">Select concert event</option>
+            <option value="Arijit Singh Night|1500">Arijit Singh Night - Rs 1500</option>
+            <option value="Rock Mania|1200">Rock Mania - Rs 1200</option>
+            <option value="Sufi Evening|900">Sufi Evening - Rs 900</option>
+            <option value="EDM Fest|1800">EDM Fest - Rs 1800</option>
+          </select><span class="err"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="cdate">Concert date</label><input id="cdate" type="date"><span
+            class="err"></span></div>
+        <div class="field"><label for="tickets">Ticket Quantity</label><input id="tickets" type="number" min="1"
+            max="10" value="1"><span class="err"></span></div>
+      </div>
+      <div class="field"><span class="lbl">Preferred genre</span>
+        <div class="chips" id="genres"></div><span class="err" id="genreErr"></span>
+      </div>
+      <div class="field"><label for="pay">Payment method</label>
+        <select id="pay">
+          <option value="">Select payment option</option>
+          <option>UPI</option>
+          <option>Credit / Debit Card</option>
+          <option>Net Banking</option>
+          <option>Pay at venue</option>
+        </select><span class="err"></span>
+      </div>
+      <div class="field"><label for="req">Special requests (Optional)</label><textarea id="req" rows="3"
+          placeholder="Wheelchair access, seating together..."></textarea></div>
+      <div class="terms"><input type="checkbox" id="terms"><label for="terms"
+          style="text-transform:none;letter-spacing:0;font-size:.88rem;color:var(--txt)">I accept all booking rules
+          &amp; terms</label></div>
+      <span class="err" id="termsErr"></span>
+      <button type="submit">Confirm &amp; Book Tickets</button>
+    </form>
+
+    <aside class="ticket">
+      <div class="ticket-badge">VIP PASS &bull; LIVE ACCESS</div>
+      <h3>ADMISSION TICKET PREVIEW</h3>
+      <div class="big" id="pShow">Pick a show</div>
+      <dl>
+        <dt>Attendee</dt>
+        <dd id="pName">-</dd>
+        <dt>Event Date</dt>
+        <dd id="pDate">-</dd>
+        <dt>Music Genre</dt>
+        <dd id="pGenre">-</dd>
+        <dt>Pass Count</dt>
+        <dd id="pTix">1</dd>
+        <dt>Payment Mode</dt>
+        <dd id="pPay">-</dd>
+      </dl>
+      <div class="total"><span>Grand Total</span><span id="pTotal">Rs 0</span></div>
+      <p class="saved" id="savedCount"></p>
+    </aside>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const genres = ['Bollywood', 'Rock', 'Pop', 'Classical', 'Sufi', 'EDM'];
+    $('genres').innerHTML = genres.map((g, i) =>
+      `<input type="radio" name="genre" id="g${i}" value="${g}"><label for="g${i}">${g}</label>`).join('');
+
+    $('cdate').min = new Date().toISOString().split('T')[0];
+
+    function preview() {
+      const [show, price] = ($('concert').value || '|0').split('|');
+      $('pShow').textContent = show || 'Pick a show';
+      $('pName').textContent = $('name').value || '-';
+      $('pDate').textContent = $('cdate').value || '-';
+      const g = document.querySelector('input[name=genre]:checked');
+      $('pGenre').textContent = g ? g.value : '-';
+      const n = Math.max(0, parseInt($('tickets').value) || 0);
+      $('pTix').textContent = n;
+      $('pPay').textContent = $('pay').value || '-';
+      $('pTotal').textContent = 'Rs ' + (Number(price) * n).toLocaleString('en-IN');
+    }
+    $('reg').addEventListener('input', preview);
+    $('reg').addEventListener('change', preview);
+
+    function setErr(id, msg) {
+      const el = $(id);
+      el.parentElement.querySelector('.err').textContent = msg;
+      return !msg;
+    }
+
+    function validate() {
+      let ok = true;
+      ok = setErr('name', $('name').value.trim().length < 3 ? 'Enter your full name' : '') && ok;
+      ok = setErr('age', !($('age').value >= 10) ? 'Enter a valid age' : '') && ok;
+      ok = setErr('email', !/^\S+@\S+\.\S+$/.test($('email').value) ? 'Enter a valid email' : '') && ok;
+      ok = setErr('mobile', !/^[6-9]\d{9}$/.test($('mobile').value) ? 'Enter a valid 10-digit mobile' : '') && ok;
+      ok = setErr('city', !$('city').value.trim() ? 'City required' : '') && ok;
+      ok = setErr('concert', !$('concert').value ? 'Choose a concert' : '') && ok;
+      ok = setErr('cdate', !$('cdate').value ? 'Pick a date' : '') && ok;
+      ok = setErr('tickets', !($('tickets').value >= 1 && $('tickets').value <= 10) ? '1 to 10 tickets' : '') && ok;
+      ok = setErr('pay', !$('pay').value ? 'Select payment method' : '') && ok;
+      const g = document.querySelector('input[name=genre]:checked');
+      $('genreErr').textContent = g ? '' : 'Pick a genre'; ok = !!g && ok;
+      $('termsErr').textContent = $('terms').checked ? '' : 'Please accept the terms'; ok = $('terms').checked && ok;
+      return ok;
+    }
+
+    function refreshCount() {
+      const n = (JSON.parse(localStorage.getItem('concertRegs')) || []).length;
+      $('savedCount').textContent = n ? `${n} registration(s) saved in this browser` : '';
+    }
+
+    $('reg').addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!validate()) return;
+      const data = {
+        name: $('name').value.trim(), age: $('age').value, email: $('email').value, mobile: $('mobile').value,
+        city: $('city').value.trim(), concert: $('concert').value.split('|')[0], date: $('cdate').value,
+        genre: document.querySelector('input[name=genre]:checked').value, tickets: $('tickets').value,
+        payment: $('pay').value, request: $('req').value.trim(), savedAt: new Date().toISOString()
+      };
+      const all = JSON.parse(localStorage.getItem('concertRegs')) || [];
+      all.push(data);
+      localStorage.setItem('concertRegs', JSON.stringify(all));
+      alert('Concert registration saved successfully!');
+      e.target.reset(); $('tickets').value = 1; preview(); refreshCount();
+    });
+    refreshCount(); preview();
+  </script>
+</body>
+
+</html>

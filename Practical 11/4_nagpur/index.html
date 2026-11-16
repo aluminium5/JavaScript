@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Nagpur | The Orange Capital of India | Atharv Lulekar (24070521036)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --orange-primary: #ea580c;
+      --orange-dark: #9a3412;
+      --amber-soft: #fff7ed;
+      --amber-glow: #ffedd5;
+      --ink: #1c1917;
+      --slate: #475569;
+      --border: rgba(234, 88, 12, 0.18);
+      --card-shadow: 0 10px 30px rgba(234, 88, 12, 0.08);
+    }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: radial-gradient(circle at 10% 10%, #fff7ed 0%, #fffbf5 50%, #fef3c7 100%);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .student-badge {
+      position: fixed;
+      top: 14px;
+      right: 18px;
+      z-index: 5;
+      padding: 8px 12px;
+      border: 1px solid rgba(234, 88, 12, 0.35);
+      border-radius: 999px;
+      background: rgba(255, 251, 245, 0.92);
+      color: #9a3412;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 20px rgba(234, 88, 12, 0.14);
+    }
+
+    .student-badge span {
+      margin-left: 6px;
+      color: #b45309;
+      font-weight: 500;
+    }
+
+    /* Sleek modern ticker */
+    .ticker {
+      background: linear-gradient(90deg, #c2410c, #ea580c, #f97316);
+      color: #fff;
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      box-shadow: 0 2px 10px rgba(194, 65, 12, 0.25);
+    }
+
+    .ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 22s linear infinite;
+    }
+
+    @keyframes scroll {
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 64px 20px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero small {
+      display: inline-block;
+      letter-spacing: 0.25em;
+      color: var(--orange-primary);
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      background: var(--amber-glow);
+      padding: 4px 14px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
+      color: #1e3a8a;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 8px 0 16px;
+      text-shadow: 2px 2px 0 rgba(254, 215, 170, 0.6);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--slate);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      padding: 8px 22px;
+      border-radius: 99px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(234, 88, 12, 0.1);
+      color: var(--orange-dark);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* Landmarks Grid */
+    .land {
+      max-width: 1060px;
+      margin: 20px auto 40px;
+      padding: 0 20px;
+    }
+
+    .land-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .land h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.1rem;
+      color: #1e293b;
+    }
+
+    .land-sub {
+      color: var(--slate);
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px 22px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--orange-primary);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 36px rgba(234, 88, 12, 0.14);
+    }
+
+    .card .ico {
+      font-size: 2.6rem;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    .c1::before {
+      background: #e11d48;
+    }
+
+    .c1 h3 {
+      color: #be123c;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .c2::before {
+      background: #059669;
+    }
+
+    .c2 h3 {
+      color: #047857;
+    }
+
+    .c3::before {
+      background: #0284c7;
+    }
+
+    .c3 h3 {
+      color: #0369a1;
+    }
+
+    .c4::before {
+      background: #7c3aed;
+    }
+
+    .c4 h3 {
+      color: #6d28d9;
+    }
+
+    /* College Section */
+    .college {
+      text-align: center;
+      padding: 40px 20px 60px;
+      background: linear-gradient(180deg, transparent 0%, rgba(254, 243, 199, 0.5) 100%);
+    }
+
+    .college p {
+      color: var(--slate);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .blink {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #881337;
+      padding: 16px 32px;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(136, 19, 55, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .blink:hover {
+      transform: scale(1.02);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 22px;
+      font-size: 0.88rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="student-badge">Atharv Lulekar <span>PRN: 24070521036</span></div>
+  <div class="ticker">
+    <span>Welcome to Nagpur &mdash; The Orange City &bull; Zero Mile Centre of India &bull; Winter Capital of
+      Maharashtra &bull; Gateway to Wildlife &nbsp;&bull;&nbsp; Enjoy your visit!</span>
+  </div>
+
+  <section class="hero">
+    <small>DISCOVER THE HEART OF INDIA</small>
+    <h1>Nagpur</h1>
+    <p>Famous for juicy Nagpur oranges, rich Vidarbha heritage, Zero Mile landmark, and the sacred Buddhist monument of
+      Deekshabhoomi.</p>
+    <div class="tag">📍 21.1458&deg; N, 79.0882&deg; E &bull; Maharashtra</div>
+  </section>
+
+  <section class="land">
+    <div class="land-header">
+      <h2>Famous City Landmarks</h2>
+      <p class="land-sub">Explore the iconic spots that define Nagpur's spirit</p>
+    </div>
+    <div class="grid">
+      <article class="card c1">
+        <div class="ico">&#9784;</div>
+        <h3>Deekshabhoomi</h3>
+        <p>A sacred architectural stupa and world-renowned Buddhist pilgrimage where Dr. B. R. Ambedkar and millions
+          embraced Buddhism.</p>
+      </article>
+      <article class="card c2">
+        <div class="ico">&#127759;</div>
+        <h3>Zero Mile Stone</h3>
+        <p>Historic stone monument erected during the Great Trigonometrical Survey of India, marking the exact
+          geographical heart of India.</p>
+      </article>
+      <article class="card c3">
+        <div class="ico">&#127754;</div>
+        <h3>Futala Lake</h3>
+        <p>A scenic historic lake built by the Bhonsle kings, famous for vibrant evenings, musical dancing fountains,
+          and authentic local street delicacies.</p>
+      </article>
+      <article class="card c4">
+        <div class="ico">&#127983;</div>
+        <h3>Sitabuldi Fort</h3>
+        <p>A prominent hilltop bastion standing as a testament to the 1817 Battle of Sitabuldi, offering panoramic
+          vistas of modern Nagpur city.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="college">
+    <p>Proud Student At</p>
+    <div class="blink">🎓 Symbiosis Institute of Technology, Nagpur</div>
+  </section>
+
+  <footer>
+    Made with HTML5 &amp; Modern CSS &bull; Nagpur, Maharashtra, India
+  </footer>
+</body>
+
+</html>
